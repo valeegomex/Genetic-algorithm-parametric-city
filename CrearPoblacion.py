@@ -30,7 +30,7 @@ poblacion = Poblacion(size=size_poblacion, max_densitiy=densidad_max_edl)
 # poblacion.build_random(bd)
 
 # Guardar en un archivo
-poblacion.build_from_file('ejemplo')
+poblacion.build_from_file('checkpoint')
 # poblacion.save_edl_population('ejemplo')
 for ind in poblacion.get_population():
     print(ind.get_id_lineas())

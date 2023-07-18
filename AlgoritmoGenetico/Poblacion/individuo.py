@@ -51,8 +51,8 @@ class Individuo:
         Reset all the values except id_linea, freq, optimizado, indice_divisibilidad and MVRC..
         :return:
         """
-        self.network_sidermit = None
-        self.graph_sidermit = None
+        # self.network_sidermit = None
+        # self.graph_sidermit = None
         self.Vij = None
         self.hyperpaths = None
         self.successors = None

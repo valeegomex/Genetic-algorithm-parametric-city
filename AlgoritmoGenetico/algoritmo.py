@@ -63,10 +63,8 @@ class Algoritmo_genetico:
         # Iterar para avanzar en las generaciones
         for i in range(gen_max):
             logger.info(f'GENERACION {i} \n')
-            # evaluador.evaluar_poblacion(poblacion, bd)
             evaluador.evaluar_poblacion_multiprocess(poblacion, bd, n_procesos=n_procesos)
             divisor.dividir_multiprocess(poblacion, evaluador, bd, n_procesos=n_procesos)
-            # divisor.dividir(poblacion, evaluador, bd)
             poblacion = iterador.avanzar(poblacion, bd.get_size(), OD_matrix, evaluador, bd)
             txt = f'Generacion: {poblacion.get_gen()}, mejor MVRC {evaluador.get_mvrc_min()}, MVRC promedio {evaluador.get_mvrc_mean()}, ' \
                   f'linea ganadora: {evaluador.get_edl_minimal().get_id_lineas()}'
@@ -74,6 +72,13 @@ class Algoritmo_genetico:
             resultados.append(txt)
             # Checkpoint
             poblacion.save_edl_population('checkpoint')
+
+        # Calcular las estadísticas de la última generación
+        evaluador.evaluar_poblacion_multiprocess(poblacion, bd, n_procesos=n_procesos)
+        txt = f'Generacion: {poblacion.get_gen()}, mejor MVRC {evaluador.get_mvrc_min()}, MVRC promedio {evaluador.get_mvrc_mean()}, ' \
+              f'linea ganadora: {evaluador.get_edl_minimal().get_id_lineas()}'
+        logger.info(txt)
+        resultados.append(txt)
 
         tf = time.time()
 

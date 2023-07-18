@@ -39,8 +39,9 @@ if __name__ ==  '__main__':
     # Parámetros del divisor
     d1, d2, umbral = 0.022, 0.244, 0.723
     # d1, d2, umbral = 0.022, 0.244, 0.723
+    divisor = Divisor_umbral(d1=d1, d2=d2, L=L, umbral=umbral)
     # divisor = Divisor_intervalo(d1=d1, d2=d2, L=L, umbral=umbral, tolerancia = 0.2)
-    divisor = Divisor_sin_division(d1=d1, d2=d2, L=L)
+    # divisor = Divisor_sin_division(d1=d1, d2=d2, L=L)
 
     # Parámetros del algoritmo genético
     gen_max=2

@@ -7,6 +7,7 @@ import numpy as np
 from collections import defaultdict
 
 from sidermit.city import Demand
+from sidermit.optimization import Optimizer
 from sidermit.publictransportsystem import TransportNetwork, TransportMode, passenger
 
 from AlgoritmoGenetico.BaseDatos.BD import BD
@@ -414,6 +415,17 @@ class Divisor_umbral(Divisor):
 
         process = multiprocessing.current_process()
 
+        # Calcular indice de divisibilidad
+        for ind in individuos_lista:
+            ind.update_network(bd)
+            demand_obj = Demand.build_from_parameters(ind.graph_sidermit, evaluador.Y, evaluador.a, evaluador.alpha, evaluador.beta)
+            opt_obj = Optimizer(ind.graph_sidermit, demand_obj, evaluador.pasajero, ind.network_sidermit, ind.freq)
+            ind.set_hyperpaths(opt_obj.hyperpaths)
+            ind.set_successors(opt_obj.successors)
+            ind.set_Vij(opt_obj.Vij)
+            ind.set_assignment(opt_obj.assignment)
+            self.actualizar_indice_divisibilidad(ind)
+
         # Los mensajes se almacenarán y enviarán a la cola al final para que aparezcan en la consola de forma consecutiva.
         for ind in individuos_lista:
             mensajes = []
@@ -450,11 +462,10 @@ class Divisor_umbral(Divisor):
         for _ in range(poblacion.size):
             ind = poblacion.get_population().pop()
             if ind.get_optimizado():
-                self.actualizar_indice_divisibilidad(ind)
                 ind.reset_multiplocess()
                 divisibles.append(ind)
             else:
-                ind.reset()
+                ind.reset_multiplocess()
                 new_population.append(ind)
 
         # Crear el conjunto de individuos que irá a cada proceso

@@ -234,12 +234,6 @@ class Evaluador:
 
         # Creamos el logger compartido de los procesos
         logger_queue = multiprocessing.Queue()
-        # # create a logger
-        # logger = logging.getLogger(__name__)
-        # # add a handler that uses the shared queue
-        # logger.addHandler(QueueHandler(logger_queue))
-        # # log all messages, debug and up
-        # logger.setLevel(logging.INFO)
         # start the logger process
         logger_p = multiprocessing.Process(target=self.logger_process, args=(logger_queue,))
         logger_p.start()
@@ -278,14 +272,6 @@ class Evaluador:
         edl_minimal = None
         for ind in poblacion.get_population():
             if ind.optimizado:
-                # Actualizar ind
-                ind.update_network(bd)
-                demand_obj = Demand.build_from_parameters(ind.graph_sidermit, self.Y, self.a, self.alpha, self.beta)
-                opt_obj = Optimizer(ind.graph_sidermit, demand_obj, self.pasajero, ind.network_sidermit, ind.freq)
-                ind.set_hyperpaths(opt_obj.hyperpaths)
-                ind.set_successors(opt_obj.successors)
-                ind.set_Vij(opt_obj.Vij)
-                ind.set_assignment(opt_obj.assignment)
                 # Buscar MVRC minimal
                 ind_mvrc = ind.get_MVRC()
                 mvrc_mean.append(ind_mvrc)
