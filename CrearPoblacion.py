@@ -10,16 +10,29 @@ from AlgoritmoGenetico.algoritmo import Algoritmo_genetico
 
 # Crear bd y poblacion aleatoria
 
-n_zonas = 6
+# n_zonas = 6
+# bd = BD(n_zonas)
+#
+# size_poblacion = 200
+# densidad_max_edl = 12
+# poblacion = Poblacion(size=size_poblacion, max_densitiy=densidad_max_edl)
+# poblacion.build_random(bd)
+#
+# # Guardar en un archivo
+# poblacion.save_edl_population('zonas6size200')
+
+n_zonas = 4
 bd = BD(n_zonas)
 
-size_poblacion = 200
-densidad_max_edl = 12
+size_poblacion = 20
+densidad_max_edl = 10
 poblacion = Poblacion(size=size_poblacion, max_densitiy=densidad_max_edl)
-poblacion.build_random(bd)
+# poblacion.build_random(bd)
 
 # Guardar en un archivo
-poblacion.save_edl_population('zonas6size200')
-
+poblacion.build_from_file('ejemplo')
+# poblacion.save_edl_population('ejemplo')
+for ind in poblacion.get_population():
+    print(ind.get_id_lineas())
 
 

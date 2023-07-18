@@ -363,7 +363,7 @@ class Divisor_umbral(Divisor):
 
     def __init__(self, d1: float, d2:float, L: float, umbral:float):
         self.umbral = umbral
-        Divisor.__init__(d1, d2, L)
+        Divisor.__init__(self, d1, d2, L)
 
     def dividir(self, population: Poblacion, evaluador: Evaluador, bd: BD):
         logger = logging.getLogger(__name__)

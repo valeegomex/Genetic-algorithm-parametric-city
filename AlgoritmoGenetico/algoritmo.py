@@ -72,6 +72,8 @@ class Algoritmo_genetico:
                   f'linea ganadora: {evaluador.get_edl_minimal().get_id_lineas()}'
             logger.info(txt)
             resultados.append(txt)
+            # Checkpoint
+            poblacion.save_edl_population('checkpoint')
 
         tf = time.time()
 
