@@ -52,7 +52,7 @@ class Algoritmo_genetico:
         # Reemplazamos los infactibles por factibles
         evaluador.construir_individuos(poblacion, bd)
         OD_matrix = evaluador.matriz_demanda(n_zonas)
-        evaluador.quitar_infactibles(bd, poblacion)
+        # evaluador.quitar_infactibles(bd, poblacion)
 
         resultados = []
         resultados.append(f'Tamaño población {self.size_poblacion}, elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, '

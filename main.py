@@ -37,9 +37,10 @@ if __name__ ==  '__main__':
     iterador = Iterador(p_elitismo=p_elitismo, prob_mutacion=prob_mutacion, p_crossover=p_crossover)
 
     # Parámetros del divisor
-    d1, d2, umbral = 0.022, 0.244, 0.723
+    d1, d2, umbral = 1.66, 0.074, 0.421
     # d1, d2, umbral = 0.022, 0.244, 0.723
-    divisor = Divisor_umbral(d1=d1, d2=d2, L=L, umbral=umbral)
+    divisor = Divisor_formula(d1=d1, d2=d2, L=L)
+    # divisor = Divisor_umbral(d1=d1, d2=d2, L=L, umbral=umbral)
     # divisor = Divisor_intervalo(d1=d1, d2=d2, L=L, umbral=umbral, tolerancia = 0.2)
     # divisor = Divisor_sin_division(d1=d1, d2=d2, L=L)
 
@@ -48,5 +49,5 @@ if __name__ ==  '__main__':
 
     # Ejecutar algoritmo
     AG = Algoritmo_genetico(n_zonas= n_zonas, poblacion=poblacion, gen_max=gen_max,
-                             evaluador=evaluador, iterador=iterador, divisor=divisor, id=10, n_procesos=2,
-                            name='zonas4size10')
+                             evaluador=evaluador, iterador=iterador, divisor=divisor, id=10, n_procesos=8,
+                            name='zonas6size200SoloFactible')
