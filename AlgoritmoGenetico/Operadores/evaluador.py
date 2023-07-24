@@ -206,9 +206,6 @@ class Evaluador:
         :param n_procesos: Cantidad de procesos simultáneos a usar.
         :return:
         """
-        if n_procesos > 4:
-            print('Número de procesos demasiado alto, intente menor que 5')
-            pass
 
         # poblacion_no_optimizada = []
         new_population = []

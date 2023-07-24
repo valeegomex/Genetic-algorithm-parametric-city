@@ -451,10 +451,6 @@ class Divisor_umbral(Divisor):
 
     def dividir_multiprocess(self, poblacion: Poblacion, evaluador: Evaluador, bd: BD, n_procesos: int):
 
-        if n_procesos > 4:
-            print('Número de procesos demasiado alto, intente menor que 5')
-            pass
-
         # Actualizar indice de divisibilidad y resetear para poder migrar los datos a la memoria compartida
         divisibles = []
         new_population = []
@@ -618,10 +614,6 @@ class Divisor_formula(Divisor):
         pass
 
     def dividir_multiprocess(self, poblacion: Poblacion, evaluador: Evaluador, bd: BD, n_procesos: int):
-
-        if n_procesos > 4:
-            print('Número de procesos demasiado alto, intente menor que 5')
-            pass
 
         # Actualizar indice de divisibilidad y resetear para poder migrar los datos a la memoria compartida
         divisibles = []
@@ -872,10 +864,6 @@ class Divisor_intervalo(Divisor):
         pass
 
     def dividir_multiprocess(self, poblacion: Poblacion, evaluador: Evaluador, bd: BD, n_procesos: int):
-
-        if n_procesos > 4:
-            print('Número de procesos demasiado alto, intente menor que 5')
-            pass
 
         # Actualizar indice de divisibilidad y resetear para poder migrar los datos a la memoria compartida
         divisibles = []
