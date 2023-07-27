@@ -84,6 +84,8 @@ class Divisor:
         for route_id in z_new:
             indice_div[route_id] = [dfc*(1-tau*self.d1)*(1+ll*self.d2) for dfc, tau, ll in
                                     zip(diferencia_factor[route_id], transbordos_obj[route_id], largos_linea_obj[route_id])]
+            # Ajustamos los puntos extremos
+            indice_div[route_id] = [float('-inf') if x == 0 else x for x in indice_div[route_id]]
 
         ind.set_indice_divisibilidad(indice_div)
 
@@ -574,6 +576,66 @@ class Divisor_umbral(Divisor):
 
 
 class Divisor_formula(Divisor):
+
+    def dividir_secuencial(self, poblacion: Poblacion, evaluador: Evaluador, bd: BD):
+        """
+        Divide sin multiproceso.
+        :return:
+        """
+
+        # Crear mensajes propios
+        logger = logging.getLogger(__name__)
+
+        # Actualizar indice de divisibilidad y resetear para poder migrar los datos a la memoria compartida
+        divisibles = []
+        new_population = []
+
+        for _ in range(poblacion.size):
+            ind = poblacion.get_population().pop()
+            if ind.get_optimizado():
+                ind.reset_multiplocess()
+                divisibles.append(ind)
+            else:
+                ind.reset()
+                new_population.append(ind)
+
+        # Calcular indice de divisibilidad
+        for ind in divisibles:
+            ind.update_network(bd)
+            demand_obj = Demand.build_from_parameters(ind.graph_sidermit, evaluador.Y, evaluador.a, evaluador.alpha,
+                                                      evaluador.beta)
+            opt_obj = Optimizer(ind.graph_sidermit, demand_obj, evaluador.pasajero, ind.network_sidermit, ind.freq)
+            ind.set_hyperpaths(opt_obj.hyperpaths)
+            ind.set_successors(opt_obj.successors)
+            ind.set_Vij(opt_obj.Vij)
+            ind.set_assignment(opt_obj.assignment)
+            self.actualizar_indice_divisibilidad(ind)
+
+        # Los mensajes se almacenarán y enviarán a la cola al final para que aparezcan en la consola de forma consecutiva.
+        for ind in divisibles:
+            logger.info(f'Dividiendo: {ind.get_id_lineas()}, MVRC: {ind.get_MVRC()}')
+            # Hacer la primera división y repetir hasta que el MVRC lo indique o la optimización falle.
+            ind_new = self.dividir_interno(ind, bd)
+            while True:
+                evaluador.evaluar_individuo(ind_new, bd)
+                if not ind_new.get_optimizado():  # Si la optimizacion falla
+                    break
+                if ind_new.get_MVRC() < ind.get_MVRC():  # La division tiene costo menor
+                    ind = ind_new
+                    logger.info(f'dividido a {ind.get_id_lineas()}, MVRC: {ind.get_MVRC()}')
+                    self.actualizar_indice_divisibilidad(ind)
+                    ind_new = self.dividir_interno(ind, bd)
+                else:
+                    break
+            logger.info(f' {ind.get_id_lineas()} no se divide')
+            # Guardar nuevo individuo
+            new_population.append(ind)
+
+        # Actualizamos la población
+        poblacion.set_population(new_population)
+        # Actualizamos los datos de la poblacion para el reporte
+        evaluador.actualizar_reporte(poblacion)
+        pass
 
     def dividir_multiprocess_interno(self, individuos_lista: list[Individuo], evaluador: Evaluador, bd: BD,
                                      queue: multiprocessing.Queue, logger_queue: multiprocessing.Queue):

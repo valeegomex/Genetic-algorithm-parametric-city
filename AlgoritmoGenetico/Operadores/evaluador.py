@@ -147,6 +147,11 @@ class Evaluador:
         lineas_minimal = None
         mvrc_mean = []
 
+        # create a logger
+        logger = logging.getLogger(__name__)
+        # log all messages, debug and up
+        logger.setLevel(logging.INFO)
+
         # Iterar sobre los individuos
         for ind in poblacion.get_population():
             if not ind.optimizado:
@@ -154,6 +159,7 @@ class Evaluador:
                 demand_obj = Demand.build_from_parameters(ind.graph_sidermit, self.Y, self.a, self.alpha, self.beta)
                 # Optimizar
                 ind.optimize(demand_obj, self.pasajero, bd)
+                logger.info(f'Optimizando: {ind.get_id_lineas()} ')
             # Buscar MVRC minimal
             ind_mvrc = ind.get_MVRC()
             if ind_mvrc < np.inf:
