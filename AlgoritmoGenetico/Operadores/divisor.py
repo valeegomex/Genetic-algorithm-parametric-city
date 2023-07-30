@@ -361,12 +361,24 @@ class Divisor:
     def dividir_multiprocess(self, poblacion: Poblacion, evaluador: Evaluador, bd: BD, n_procesos: int):
         pass
 
+    def get_name(self) -> str:
+        pass
+
+    def get_info_adicional(self) -> str:
+        return 'N/a'
+
 
 class Divisor_umbral(Divisor):
 
     def __init__(self, d1: float, d2:float, L: float, umbral:float):
         self.umbral = umbral
         Divisor.__init__(self, d1, d2, L)
+
+    def get_info_adicional(self) -> str:
+        return f'umbral={self.umbral}'
+
+    def get_name(self) -> str:
+        return 'division tipo umbral'
 
     def dividir(self, population: Poblacion, evaluador: Evaluador, bd: BD):
         logger = logging.getLogger(__name__)
@@ -576,6 +588,9 @@ class Divisor_umbral(Divisor):
 
 
 class Divisor_formula(Divisor):
+
+    def get_name(self) -> str:
+        return 'division tipo formula'
 
     def dividir_secuencial(self, poblacion: Poblacion, evaluador: Evaluador, bd: BD):
         """
@@ -814,6 +829,12 @@ class Divisor_intervalo(Divisor):
         self.umbral = umbral
         Divisor.__init__(self, d1, d2, L)
 
+    def get_info_adicional(self) -> str:
+        return f'umbral={self.umbral}, tolerancia={self.tolerancia}'
+
+    def get_name(self) -> str:
+        return 'division tipo intervalo'
+
     def paso_umbral(self, individuo_obj: Individuo, bd: BD):
         """
         Realiza sólo un paso de división con umbral.  Si la división se ejecuta retorna True, individuo_obj_dividido,
@@ -1051,6 +1072,8 @@ class Divisor_intervalo(Divisor):
 
 class Divisor_sin_division(Divisor):
     """
-    No hace nada.
+    Esta clase no hace nada.
     """
-    pass
+
+    def get_name(self) -> str:
+        return 'sin division'

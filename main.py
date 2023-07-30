@@ -45,9 +45,9 @@ if __name__ ==  '__main__':
     divisor = Divisor_sin_division(d1=d1, d2=d2, L=L)
 
     # Parámetros del algoritmo genético
-    gen_max=17
+    gen_max=1
 
     # Ejecutar algoritmo
     AG = Algoritmo_genetico(n_zonas= n_zonas, poblacion=poblacion, gen_max=gen_max,
-                             evaluador=evaluador, iterador=iterador, divisor=divisor, id=10, n_procesos=8,
+                             evaluador=evaluador, iterador=iterador, divisor=divisor, id=10, n_procesos=2,
                             name='zonas6size200SoloFactible')

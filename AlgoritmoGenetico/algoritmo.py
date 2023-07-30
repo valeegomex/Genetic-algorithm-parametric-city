@@ -55,10 +55,14 @@ class Algoritmo_genetico:
         # evaluador.quitar_infactibles(bd, poblacion)
 
         resultados = []
-        resultados.append(f'Tamaño población {self.size_poblacion}, elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, '
+        resultados.append(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta} \n'
+                          f'Estrategia: {divisor.get_name()}, d1={divisor.d1}, d2={divisor.d2}, adicionales: {divisor.get_info_adicional()} \n'
+                          f'Tamaño población {self.size_poblacion},elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, \n'
                           f'crossover para los {self.p_crossover} mejores y probabilidad mutación {self.prob_mutacion} \n')
-        logger.info(f'Tamaño población {self.size_poblacion}, elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, '
-                          f'crossover para los {self.p_crossover} mejores y probabilidad mutación {self.prob_mutacion}')
+        logger.info(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta} \n'
+                          f'Estrategia: {divisor.get_name()}, d1={divisor.d1}, d2={divisor.d2}, adicionales: {divisor.get_info_adicional()} \n'
+                          f'Tamaño población {self.size_poblacion},elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, \n'
+                          f'crossover para los {self.p_crossover} mejores y probabilidad mutación {self.prob_mutacion} \n')
 
         # Iterar para avanzar en las generaciones
         for i in range(gen_max):
