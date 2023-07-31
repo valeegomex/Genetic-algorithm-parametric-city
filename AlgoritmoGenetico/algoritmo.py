@@ -20,7 +20,7 @@ logger.addHandler(file_handler)
 
 class Algoritmo_genetico:
     def __init__(self, n_zonas: int,  poblacion: Poblacion, gen_max: int, evaluador: Evaluador, iterador: Iterador,
-                 divisor: Divisor, id:int, n_procesos:int = 1, name:str=None):
+                 divisor: Divisor, id:str, n_procesos:int = 1, name:str=None):
         """
         Inicializa y ejecuta automaticamente el algoritmo genetico. Retorna los resultados en un archivo de texto y
         graficos de las lineas de la EDL optima.
