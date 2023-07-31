@@ -47,6 +47,7 @@ class Algoritmo_genetico:
         self.bd = bd
         if name is None:
             poblacion.build_random(bd)
+            name = 'Na'
         else:
             poblacion.build_from_file(name)
         # Reemplazamos los infactibles por factibles
@@ -56,13 +57,15 @@ class Algoritmo_genetico:
 
         resultados = []
         resultados.append(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta} \n'
+                          f'Archivo poblacion inicial: {name} \n'
                           f'Estrategia: {divisor.get_name()}, d1={divisor.d1}, d2={divisor.d2}, adicionales: {divisor.get_info_adicional()} \n'
                           f'Tamaño población {self.size_poblacion},elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, \n'
                           f'crossover para los {self.p_crossover} mejores y probabilidad mutación {self.prob_mutacion} \n')
         logger.info(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta} \n'
-                          f'Estrategia: {divisor.get_name()}, d1={divisor.d1}, d2={divisor.d2}, adicionales: {divisor.get_info_adicional()} \n'
-                          f'Tamaño población {self.size_poblacion},elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, \n'
-                          f'crossover para los {self.p_crossover} mejores y probabilidad mutación {self.prob_mutacion} \n')
+                    f'Archivo poblacion inicial: {name} \n'
+                    f'Estrategia: {divisor.get_name()}, d1={divisor.d1}, d2={divisor.d2}, adicionales: {divisor.get_info_adicional()} \n'
+                    f'Tamaño población {self.size_poblacion},elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, \n'
+                    f'crossover para los {self.p_crossover} mejores y probabilidad mutación {self.prob_mutacion} \n')
 
         # Iterar para avanzar en las generaciones
         for i in range(gen_max):
@@ -88,8 +91,7 @@ class Algoritmo_genetico:
 
         logger.info(f'Tiempo total ejecución: {tf-t0}')
 
-        name= 'Resultado'
-        f = open(f'{name}{n_zonas}zonas{id}.txt', 'w')
+        f = open(f'Resultado{n_zonas}zonas{id}.txt', 'w')
         for res in resultados:
             f.write(res + '\n')
         f.write(f'Mejor EDL {evaluador.get_edl_minimal().get_id_lineas()}')
