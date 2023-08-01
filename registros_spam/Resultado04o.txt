@@ -1,0 +1,24 @@
+Ciudad 6 zonas, Y=750, a=0.8, alpha=0.6, beta=0.2 
+Estrategia: sin division, d1=1.66, d2=0.074, adicionales: N/a 
+Tamaño población 200,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+Generacion: 1, mejor MVRC 4870.422, MVRC promedio 5672.973, linea ganadora: [7072, 2116, 2247, 6761, 5866, 1882]
+Generacion: 2, mejor MVRC 4871.002, MVRC promedio 5362.012, linea ganadora: [7072, 2116, 2247, 6761, 5866, 1882]
+Generacion: 3, mejor MVRC 4577.63, MVRC promedio 5186.72, linea ganadora: [4001, 939, 1836, 1556]
+Generacion: 4, mejor MVRC 4568.191, MVRC promedio 5099.603, linea ganadora: [1836, 7252, 666, 1725]
+Generacion: 5, mejor MVRC 4533.364, MVRC promedio 5007.714, linea ganadora: [3587, 2116, 5866, 1557, 154, 1882]
+Generacion: 6, mejor MVRC 4335.497, MVRC promedio 4890.18, linea ganadora: [2116, 939, 1836, 1556, 1882]
+Generacion: 7, mejor MVRC 4269.395, MVRC promedio 4792.987, linea ganadora: [1882, 1836, 1556, 2494]
+Generacion: 8, mejor MVRC 4269.395, MVRC promedio 4720.775, linea ganadora: [1882, 1836, 1556, 2494]
+Generacion: 9, mejor MVRC 4269.395, MVRC promedio 4587.116, linea ganadora: [1882, 1836, 1556, 2494]
+Generacion: 10, mejor MVRC 4269.395, MVRC promedio 4533.882, linea ganadora: [1882, 1836, 1556, 2494]
+Generacion: 11, mejor MVRC 4267.468, MVRC promedio 4424.417, linea ganadora: [1836, 1556, 154, 1882, 2494]
+Generacion: 12, mejor MVRC 4245.459, MVRC promedio 4325.307, linea ganadora: [1882, 1556, 1836, 983]
+Generacion: 13, mejor MVRC 4245.459, MVRC promedio 4287.698, linea ganadora: [1882, 1556, 1836, 983]
+Generacion: 14, mejor MVRC 4245.459, MVRC promedio 4278.461, linea ganadora: [1882, 1556, 1836, 983]
+Generacion: 15, mejor MVRC 4245.459, MVRC promedio 4276.524, linea ganadora: [1882, 1556, 1836, 983]
+Generacion: 16, mejor MVRC 4230.788, MVRC promedio 4277.907, linea ganadora: [1882, 1188, 1556, 2494]
+Generacion: 17, mejor MVRC 4230.772, MVRC promedio 4271.144, linea ganadora: [1882, 1188, 1556, 2494]
+Generacion: 17, mejor MVRC 4135.727, MVRC promedio 4282.666, linea ganadora: [2034, 1556, 1882]
+Mejor EDL [2034, 1556, 1882]Tiempo total ejecución: 22207.74612212181
