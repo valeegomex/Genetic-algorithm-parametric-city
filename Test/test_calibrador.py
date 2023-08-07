@@ -1,7 +1,8 @@
+import logging
+
 if __name__ ==  '__main__':
     from sidermit.city import Graph
     from sidermit.publictransportsystem import TransportMode, passenger
-    import pandas as pd
 
     from AlgoritmoGenetico.Operadores.calibrador import Calibrador
 
@@ -27,4 +28,14 @@ if __name__ ==  '__main__':
     #
     terminos_optimos = calibrador.calibrar_frontera(frontera)
     print(terminos_optimos)
+
+    logger = logging.getLogger(__name__)
+    # handdle to write in file
+    formatter = logging.Formatter('%(asctime)s | %(message)s')
+    file_handler = logging.FileHandler('spamCalibracion.log')
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    logger.info(f'Los terminos optimos para {n} zonas e Y={Y} [pax/hora], son d1={terminos_optimos[0]},'
+                f' d2={terminos_optimos[1]} y umbral={terminos_optimos[2]}')
 
