@@ -1,7 +1,7 @@
 import logging
 import multiprocessing
 import multiprocessing.process
-from logging.handlers import QueueHandler
+
 
 import numpy as np
 from collections import defaultdict
