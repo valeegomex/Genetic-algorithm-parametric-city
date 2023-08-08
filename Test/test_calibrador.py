@@ -12,7 +12,8 @@ if __name__ ==  '__main__':
     passenger_obj = passenger.Passenger(va=4, pv=2.74, pw=5.48, pa=0, pt=16, spv=2.74, spw=5.48, spa=0, spt=16)
     graph_obj = Graph.build_from_parameters(n=n, l=L, g=g, p=P)
 
-    calibrador = Calibrador(n=n, graph_obj=graph_obj, tmode=tmode, passenger_obj=passenger_obj, Y=Y, L=L, build=True, n_procesos=2)
+    calibrador = Calibrador(n=n, graph_obj=graph_obj, tmode=tmode, passenger_obj=passenger_obj, Y=Y, L=L,
+                            build=True, n_procesos=3)
 
     frontera = calibrador.obtener_frontera()
     # error = calibrador.error_prediccion(d1=0.8, d2=0.1, umbral=0.54, frontera=frontera)
@@ -32,7 +33,7 @@ if __name__ ==  '__main__':
     logger = logging.getLogger(__name__)
     # handdle to write in file
     formatter = logging.Formatter('%(asctime)s | %(message)s')
-    file_handler = logging.FileHandler('spamCalibracion.log')
+    file_handler = logging.FileHandler('spamCalibrador.log')
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)

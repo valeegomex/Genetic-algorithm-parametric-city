@@ -109,25 +109,37 @@ class Calibrador():
         flast = None
         for params in param_list:
             a, alpha, beta = params
-            # Optimize
+            # Try optimize
+            opt_status = False
             demand_obj = Demand.build_from_parameters(self.graph, self.Y, a, alpha, beta)  # Define demand
-            opt_obj = Optimizer.network_optimization(self.graph, demand_obj, passenger_obj, network_obj,
+            try:
+                opt_obj = Optimizer.network_optimization(self.graph, demand_obj, passenger_obj, network_obj,
                                                      max_number_of_iteration=5, f=flast, tolerance=0.1)
-            # Save optimal frequencies
-            res = opt_obj.better_res
-            fopt, success, status, message, constr_violation, vrc = res
-            flast = opt_obj.fopt_to_f(fopt)
-            f_last = flast.copy()
-            # Calcular los terminos del indice de divisibilidad
-            df, tb, ll = self.terminos_divisibilidad(opt_obj)
-            dict_aux = {'alpha': alpha, 'beta': beta, 'a': a, 'VRC': vrc, 'factor_carga': df,
-                        'transbordos': tb, 'largo_lineas': ll}
-            # Unir ambos diccionarios
-            f_last |= dict_aux
+                # Save optimal frequencies
+                res = opt_obj.better_res
+                fopt, success, status, message, constr_violation, vrc = res
+                flast = opt_obj.fopt_to_f(fopt)
+                f_last = flast.copy()
+                opt_status = True
+            except:
+                f_last = {'alpha': alpha, 'beta': beta, 'a': a}
+
+            # Intentar calcular los terminos del indice de divisibilidad si la opt no falló
+            if opt_status:
+                try:
+                    df, tb, ll = self.terminos_divisibilidad(opt_obj)
+                    dict_aux = {'alpha': alpha, 'beta': beta, 'a': a, 'VRC': vrc, 'factor_carga': df,
+                                'transbordos': tb, 'largo_lineas': ll}
+                    # Unir ambos diccionarios
+                    f_last |= dict_aux
+
+                except:
+                    dict_aux = {'alpha': alpha, 'beta': beta, 'a': a}
+                    f_last |= dict_aux
 
             # Enviar resultado a la cola y el logger
             queue.put(f_last)
-            logger_queue.put(f'a={a}, alpha={alpha}, beta={beta} hecho')
+            logger_queue.put(f'a={a}, alpha={alpha}, beta={beta} EDL completa terminado')
 
     def simular_edl_dividida_interno(self, passenger_obj: Passenger, param_list: list[list[float]],
                                      queue: multiprocessing.Queue, logger_queue: multiprocessing.Queue):
@@ -151,25 +163,37 @@ class Calibrador():
         flast = None
         for params in param_list:
             a, alpha, beta = params
-            # Optimize
+            # Try optimize
+            opt_status = False
             demand_obj = Demand.build_from_parameters(self.graph, self.Y, a, alpha, beta)  # Define demand
-            opt_obj = Optimizer.network_optimization(self.graph, demand_obj, passenger_obj, network_obj,
-                                                     max_number_of_iteration=5, f=flast, tolerance=0.1)
-            # Save optimal frequencies
-            res = opt_obj.better_res
-            fopt, success, status, message, constr_violation, vrc = res
-            flast = opt_obj.fopt_to_f(fopt)
-            f_last = flast.copy()
-            # Calcular los terminos del indice de divisibilidad
-            df, tb, ll = self.terminos_divisibilidad(opt_obj)
-            dict_aux = {'alpha': alpha, 'beta': beta, 'a': a, 'VRC': vrc, 'factor_carga': df,
-                        'transbordos': tb, 'largo_lineas': ll}
-            # Unir ambos diccionarios
-            f_last |= dict_aux
+            try:
+                opt_obj = Optimizer.network_optimization(self.graph, demand_obj, passenger_obj, network_obj,
+                                                         max_number_of_iteration=5, f=flast, tolerance=0.1)
+                # Save optimal frequencies
+                res = opt_obj.better_res
+                fopt, success, status, message, constr_violation, vrc = res
+                flast = opt_obj.fopt_to_f(fopt)
+                f_last = flast.copy()
+                opt_status = True
+            except:
+                f_last = {'alpha': alpha, 'beta': beta, 'a': a}
+
+            # Intentar calcular los terminos del indice de divisibilidad si la opt no falló
+            if opt_status:
+                try:
+                    df, tb, ll = self.terminos_divisibilidad(opt_obj)
+                    dict_aux = {'alpha': alpha, 'beta': beta, 'a': a, 'VRC': vrc, 'factor_carga': df,
+                                'transbordos': tb, 'largo_lineas': ll}
+                    # Unir ambos diccionarios
+                    f_last |= dict_aux
+
+                except:
+                    dict_aux = {'alpha': alpha, 'beta': beta, 'a': a}
+                    f_last |= dict_aux
 
             # Enviar resultado a la cola y el logger
             queue.put(f_last)
-            logger_queue.put(f'a={a}, alpha={alpha}, beta={beta} hecho')
+            logger_queue.put(f'a={a}, alpha={alpha}, beta={beta} EDL dividida terminado')
 
     def simular_edl_completa(self, passenger_obj: Passenger, n_procesos: int=1):
         """
@@ -182,6 +206,7 @@ class Calibrador():
         """
         # demand parameters
         a_list = [0.3, 0.5, 0.7]
+        # a_list = [0.3]
         alpha_list = np.linspace(0, 1, 10, endpoint=False).round(3)
         beta_list = np.linspace(0, 1, 10, endpoint=False).round(3)
 
@@ -324,6 +349,7 @@ class Calibrador():
         """
         # demand parameters
         a_list = [0.3, 0.5, 0.7]
+        # a_list = [0.3]
         alpha_list = np.linspace(0, 1, 10, endpoint=False).round(3)
         beta_list = np.linspace(0, 1, 10, endpoint=False).round(3)
 
