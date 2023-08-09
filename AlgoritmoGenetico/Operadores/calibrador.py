@@ -179,17 +179,17 @@ class Calibrador():
                 f_last = {'alpha': alpha, 'beta': beta, 'a': a}
 
             # Intentar calcular los terminos del indice de divisibilidad si la opt no falló
-            if opt_status:
-                try:
-                    df, tb, ll = self.terminos_divisibilidad(opt_obj)
-                    dict_aux = {'alpha': alpha, 'beta': beta, 'a': a, 'VRC': vrc, 'factor_carga': df,
-                                'transbordos': tb, 'largo_lineas': ll}
-                    # Unir ambos diccionarios
-                    f_last |= dict_aux
-
-                except:
-                    dict_aux = {'alpha': alpha, 'beta': beta, 'a': a}
-                    f_last |= dict_aux
+            # if opt_status:
+            #     try:
+            #         df, tb, ll = self.terminos_divisibilidad(opt_obj)
+            #         dict_aux = {'alpha': alpha, 'beta': beta, 'a': a, 'VRC': vrc, 'factor_carga': df,
+            #                     'transbordos': tb, 'largo_lineas': ll}
+            #         # Unir ambos diccionarios
+            #         f_last |= dict_aux
+            #
+            #     except:
+            #         dict_aux = {'alpha': alpha, 'beta': beta, 'a': a}
+            #         f_last |= dict_aux
 
             # Enviar resultado a la cola y el logger
             queue.put(f_last)
