@@ -1,0 +1,25 @@
+Ciudad 6 zonas, Y=1500, a=0.8, alpha=0.3, beta=0.35 
+Archivo poblacion inicial: checkpoint 
+Estrategia: division tipo umbral, d1=0.08, d2=0.248, adicionales: umbral=0.67 
+Tamaño población 200,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+Generacion: 1, mejor MVRC 7975.831987490417, MVRC promedio 8383.514156605614, linea ganadora: [1185, 264, 298, 1195, 368, 403, 438, 3065, 985, 223]
+Generacion: 2, mejor MVRC 7975.731890478997, MVRC promedio 8359.845544642229, linea ganadora: [1185, 264, 298, 1195, 368, 403, 438, 3065, 985, 223]
+Generacion: 3, mejor MVRC 7967.511481076777, MVRC promedio 8373.81498361731, linea ganadora: [263, 1480, 298, 333, 368, 403, 5144, 254]
+Generacion: 4, mejor MVRC 7967.507442668165, MVRC promedio 8355.856311137743, linea ganadora: [263, 1480, 298, 333, 368, 403, 5144, 254]
+Generacion: 5, mejor MVRC 7967.507442668165, MVRC promedio 8353.083565252755, linea ganadora: [263, 1480, 298, 333, 368, 403, 5144, 254]
+Generacion: 6, mejor MVRC 7967.507442668165, MVRC promedio 8299.907173907934, linea ganadora: [263, 1480, 298, 333, 368, 403, 5144, 254]
+Generacion: 7, mejor MVRC 7967.507442668165, MVRC promedio 8348.133611529332, linea ganadora: [263, 1480, 298, 333, 368, 403, 5144, 254]
+Generacion: 8, mejor MVRC 7967.507442668165, MVRC promedio 8322.91611109962, linea ganadora: [263, 1480, 298, 333, 368, 403, 5144, 254]
+Generacion: 9, mejor MVRC 7936.1500693929775, MVRC promedio 8336.809835505761, linea ganadora: [263, 298, 333, 368, 403, 438, 5144, 254]
+Generacion: 10, mejor MVRC 7936.143781371811, MVRC promedio 8281.544661082848, linea ganadora: [263, 298, 333, 368, 403, 438, 5144, 254]
+Generacion: 11, mejor MVRC 7936.143781371811, MVRC promedio 8273.646382889905, linea ganadora: [263, 298, 333, 368, 403, 438, 5144, 254]
+Generacion: 12, mejor MVRC 7936.143781371811, MVRC promedio 8330.872973249308, linea ganadora: [263, 298, 333, 368, 403, 438, 5144, 254]
+Generacion: 13, mejor MVRC 7935.9227660472225, MVRC promedio 8280.219879421094, linea ganadora: [263, 298, 333, 368, 403, 438, 5144, 989, 254]
+Generacion: 14, mejor MVRC 7936.133183046715, MVRC promedio 8266.343373348813, linea ganadora: [263, 298, 333, 368, 403, 438, 5144, 254]
+Generacion: 15, mejor MVRC 7936.143781330383, MVRC promedio 8191.068876495472, linea ganadora: [263, 298, 333, 368, 403, 438, 5561, 222]
+Generacion: 16, mejor MVRC 7936.143781330383, MVRC promedio 8182.817213444828, linea ganadora: [263, 298, 333, 368, 403, 438, 5561, 222]
+Generacion: 17, mejor MVRC 7936.143781330383, MVRC promedio 8202.976019656284, linea ganadora: [263, 298, 333, 368, 403, 438, 5561, 222]
+Generacion: 17, mejor MVRC 7936.133, MVRC promedio 8147.911, linea ganadora: [263, 298, 333, 368, 403, 438, 5144, 254]
+Mejor EDL [263, 298, 333, 368, 403, 438, 5144, 254]Tiempo total ejecución: 13305.061992645264
