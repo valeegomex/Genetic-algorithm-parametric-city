@@ -28,7 +28,7 @@ if __name__ ==  '__main__':
 
     # Parámetros del evaluador
     L, g, P = 10, 1.8, 1
-    Y, a, alpha, beta = 6*1000, 0.4, 0.3, 0.6
+    Y, a, alpha, beta = 1500, 0.8, 0.3, 0.35
     evaluador = Evaluador(passenger_obj=pasajero, custom_tmode=tmode, L=L, g=g, P=P, Y=Y, a=a, alpha=alpha, beta=beta,
                           n_zonas=n_zonas)
 
@@ -37,7 +37,7 @@ if __name__ ==  '__main__':
     iterador = Iterador(p_elitismo=p_elitismo, prob_mutacion=prob_mutacion, p_crossover=p_crossover)
 
     # Parámetros del divisor
-    d1, d2, umbral = 1.66, 0.074, 0.421
+    d1, d2, umbral = 0.08, 0.248, 0.67
     # d1, d2, umbral = 0.022, 0.244, 0.723
     # divisor = Divisor_formula(d1=d1, d2=d2, L=L)
     divisor = Divisor_umbral(d1=d1, d2=d2, L=L, umbral=umbral)
@@ -45,9 +45,9 @@ if __name__ ==  '__main__':
     # divisor = Divisor_sin_division(d1=d1, d2=d2, L=L)
 
     # Parámetros del algoritmo genético
-    gen_max=12
+    gen_max=17
 
     # Ejecutar algoritmo
     AG = Algoritmo_genetico(n_zonas= n_zonas, poblacion=poblacion, gen_max=gen_max,
                              evaluador=evaluador, iterador=iterador, divisor=divisor, id='10', n_procesos=8,
-                            name='checkpoint')
+                            name='zonas6size200SoloFactible')
