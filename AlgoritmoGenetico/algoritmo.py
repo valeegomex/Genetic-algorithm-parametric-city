@@ -11,12 +11,18 @@ from AlgoritmoGenetico.Poblacion.poblacion import Poblacion
 logging.getLogger("sidermit").setLevel(logging.WARNING)
 # Crear mensajes propios
 logger = logging.getLogger(__name__)
+logger_r = logging.getLogger('resultados')
 # handdle to write in file
 formatter = logging.Formatter('%(asctime)s | %(message)s')
 file_handler = logging.FileHandler('spam.log')
+file_handler_r = logging.FileHandler('Resultados.log')
 file_handler.setLevel(logging.DEBUG)
+file_handler_r.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
+file_handler_r.setFormatter(formatter)
+
 logger.addHandler(file_handler)
+logger_r.addHandler(file_handler_r)
 
 class Algoritmo_genetico:
     def __init__(self, n_zonas: int,  poblacion: Poblacion, gen_max: int, evaluador: Evaluador, iterador: Iterador,
@@ -56,7 +62,7 @@ class Algoritmo_genetico:
         # evaluador.quitar_infactibles(bd, poblacion)
 
         resultados = []
-        resultados.append(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta} \n'
+        logger_r.info(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta} \n'
                           f'Archivo poblacion inicial: {name} \n'
                           f'Estrategia: {divisor.get_name()}, d1={divisor.d1}, d2={divisor.d2}, adicionales: {divisor.get_info_adicional()} \n'
                           f'Tamaño población {self.size_poblacion},elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, \n'
@@ -76,7 +82,7 @@ class Algoritmo_genetico:
             txt = f'Generacion: {poblacion.get_gen()}, mejor MVRC {evaluador.get_mvrc_min()}, MVRC promedio {evaluador.get_mvrc_mean()}, ' \
                   f'linea ganadora: {evaluador.get_edl_minimal().get_id_lineas()}'
             logger.info(txt)
-            resultados.append(txt)
+            logger_r.info(txt)
             # Checkpoint
             poblacion.save_edl_population('checkpoint')
 
@@ -85,18 +91,15 @@ class Algoritmo_genetico:
         txt = f'Generacion: {poblacion.get_gen()}, mejor MVRC {evaluador.get_mvrc_min()}, MVRC promedio {evaluador.get_mvrc_mean()}, ' \
               f'linea ganadora: {evaluador.get_edl_minimal().get_id_lineas()}'
         logger.info(txt)
-        resultados.append(txt)
+        logger_r.info(txt)
 
         tf = time.time()
 
         logger.info(f'Tiempo total ejecución: {tf-t0}')
+        logger_r.info(f'Tiempo total ejecución: {tf - t0}')
 
-        f = open(f'Resultado{n_zonas}zonas{id}.txt', 'w')
-        for res in resultados:
-            f.write(res + '\n')
-        f.write(f'Mejor EDL {evaluador.get_edl_minimal().get_id_lineas()}')
-        f.write(f'Tiempo total ejecución: {tf-t0}')
-        f.close()
+        logger_r.info(f'Mejor EDL {evaluador.get_edl_minimal().get_id_lineas()}')
+        logger_r.info(f'Tiempo total ejecución: {tf-t0}')
 
         # Graficar las lineas del mejor
         # edl = evaluador.get_edl_minimal()
