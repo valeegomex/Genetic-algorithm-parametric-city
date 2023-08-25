@@ -19,7 +19,7 @@ if __name__ ==  '__main__':
     graph_obj = Graph.build_from_parameters(n=n, l=L, g=g, p=P)
     n_pross = 6
 
-    Y = 18000
+    Y = 3750
     calibrador = Calibrador(n=n, graph_obj=graph_obj, tmode=tmode, passenger_obj=passenger_obj, Y=Y, L=L,
                             build=True, n_procesos=n_pross)
     frontera = calibrador.obtener_frontera()
@@ -27,26 +27,4 @@ if __name__ ==  '__main__':
     logger.info(f'Los terminos optimos para {n} zonas e Y={Y} [pax/hora], son d1={terminos_optimos[0]},'
                 f' d2={terminos_optimos[1]} y umbral={terminos_optimos[2]}')
 
-    Y = 26250
-    calibrador = Calibrador(n=n, graph_obj=graph_obj, tmode=tmode, passenger_obj=passenger_obj, Y=Y, L=L,
-                            build=True, n_procesos=n_pross)
-    frontera = calibrador.obtener_frontera()
-    terminos_optimos = calibrador.calibrar_frontera(frontera)
-    logger.info(f'Los terminos optimos para {n} zonas e Y={Y} [pax/hora], son d1={terminos_optimos[0]},'
-                f' d2={terminos_optimos[1]} y umbral={terminos_optimos[2]}')
-
-    Y = 15000
-    calibrador = Calibrador(n=n, graph_obj=graph_obj, tmode=tmode, passenger_obj=passenger_obj, Y=Y, L=L,
-                            build=True, n_procesos=n_pross)
-    frontera = calibrador.obtener_frontera()
-    terminos_optimos = calibrador.calibrar_frontera(frontera)
-    logger.info(f'Los terminos optimos para {n} zonas e Y={Y} [pax/hora], son d1={terminos_optimos[0]},'
-                f' d2={terminos_optimos[1]} y umbral={terminos_optimos[2]}')
-
-    Y = 6750
-    calibrador = Calibrador(n=n, graph_obj=graph_obj, tmode=tmode, passenger_obj=passenger_obj, Y=Y, L=L,
-                            build=True, n_procesos=n_pross)
-    frontera = calibrador.obtener_frontera()
-    terminos_optimos = calibrador.calibrar_frontera(frontera)
-    logger.info(f'Los terminos optimos para {n} zonas e Y={Y} [pax/hora], son d1={terminos_optimos[0]},'
-                f' d2={terminos_optimos[1]} y umbral={terminos_optimos[2]}')
+   
