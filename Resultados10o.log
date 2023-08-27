@@ -1,0 +1,39 @@
+2023-08-26 20:25:27,291 | Ciudad 6 zonas, Y=45000, a=0.8, alpha=0.1, beta=0.45 
+Archivo poblacion inicial: zonas6size200SoloFactible 
+Estrategia: division tipo umbral, d1=0, d2=0, adicionales: umbral=0.468 
+Tamaño población 20,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+2023-08-26 22:41:56,058 | Ciudad 6 zonas, Y=45000, a=0.8, alpha=0.1, beta=0.45 
+Archivo poblacion inicial: zonas6size200SoloFactible 
+Estrategia: division tipo umbral, d1=0, d2=0, adicionales: umbral=0.468 
+Tamaño población 20,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+2023-08-26 22:45:49,591 | Ciudad 6 zonas, Y=45000, a=0.8, alpha=0.1, beta=0.45 
+Archivo poblacion inicial: zonas6size200SoloFactible 
+Estrategia: sin division, d1=0, d2=0, adicionales: N/a 
+Tamaño población 200,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+2023-08-27 00:03:04,911 | Generacion: 1, mejor MVRC 208251.788, MVRC promedio 241137.808, linea ganadora: [1761, 5804, 429, 5773, 1965, 6077, 3731, 469, 7285, 5405]
+2023-08-27 00:53:11,188 | Generacion: 2, mejor MVRC 206239.574, MVRC promedio 229426.13, linea ganadora: [1826, 5639, 2616, 3249, 7283, 7252, 1813, 7032, 666, 2555]
+2023-08-27 01:33:48,682 | Generacion: 3, mejor MVRC 204564.184, MVRC promedio 222828.776, linea ganadora: [6116, 6021, 5161, 6705, 4598, 3192, 5850, 4570, 1917, 5662]
+2023-08-27 02:08:31,897 | Generacion: 4, mejor MVRC 204566.681, MVRC promedio 219710.159, linea ganadora: [6116, 6021, 5161, 6705, 4570, 4598, 3192, 5850, 1917, 5662]
+2023-08-27 02:46:14,077 | Generacion: 5, mejor MVRC 202982.158, MVRC promedio 216433.635, linea ganadora: [3588, 4202, 7274, 6125, 3822, 5841, 2034, 7258, 1564]
+2023-08-27 03:19:42,463 | Generacion: 6, mejor MVRC 203240.136, MVRC promedio 215304.883, linea ganadora: [3588, 4202, 7274, 6125, 3822, 5841, 2034, 7258, 1564]
+2023-08-27 03:43:30,685 | Generacion: 7, mejor MVRC 202781.147, MVRC promedio 215161.771, linea ganadora: [5573, 1836, 5647, 6863, 2707, 5907, 7032, 635]
+2023-08-27 04:04:51,605 | Generacion: 8, mejor MVRC 201447.041, MVRC promedio 212842.173, linea ganadora: [3588, 6021, 7274, 5841, 5554, 2034, 1813, 4028, 1564]
+2023-08-27 04:35:48,825 | Generacion: 9, mejor MVRC 201447.041, MVRC promedio 211146.359, linea ganadora: [3588, 6021, 7274, 5841, 5554, 2034, 1813, 4028, 1564]
+2023-08-27 05:00:12,145 | Generacion: 10, mejor MVRC 199705.016, MVRC promedio 210694.123, linea ganadora: [3588, 6021, 7080, 4203, 1739, 77, 5682, 666]
+2023-08-27 05:28:02,378 | Generacion: 11, mejor MVRC 199036.847, MVRC promedio 210337.079, linea ganadora: [1826, 1836, 6863, 1970, 7252, 7032, 666]
+2023-08-27 05:46:15,254 | Generacion: 12, mejor MVRC 198858.021, MVRC promedio 208565.725, linea ganadora: [3588, 1739, 1836, 4527, 1970, 7252, 7032, 4127]
+2023-08-27 06:08:10,551 | Generacion: 13, mejor MVRC 198858.021, MVRC promedio 209415.062, linea ganadora: [3588, 1739, 1836, 4527, 1970, 7252, 7032, 4127]
+2023-08-27 06:30:20,391 | Generacion: 14, mejor MVRC 198152.714, MVRC promedio 209058.531, linea ganadora: [5570, 1836, 749, 1970, 7252, 7032, 635, 1564]
+2023-08-27 06:50:15,028 | Generacion: 15, mejor MVRC 197155.215, MVRC promedio 207337.726, linea ganadora: [3588, 1739, 1836, 6863, 5647, 7252, 7032, 635]
+2023-08-27 07:07:12,165 | Generacion: 16, mejor MVRC 196109.716, MVRC promedio 206889.015, linea ganadora: [3588, 1739, 1836, 6863, 5647, 7252, 7032, 666, 635]
+2023-08-27 07:26:44,567 | Generacion: 17, mejor MVRC 196248.859, MVRC promedio 206608.754, linea ganadora: [3588, 1739, 1836, 5647, 6863, 7252, 7032, 666, 635]
+2023-08-27 07:43:21,816 | Generacion: 17, mejor MVRC 196247.671, MVRC promedio 205618.998, linea ganadora: [3588, 1739, 1836, 6863, 5647, 7252, 7032, 666, 635]
+2023-08-27 07:43:21,818 | Tiempo total ejecución: 32268.432167053223
+2023-08-27 07:43:21,820 | Mejor EDL [3588, 1739, 1836, 6863, 5647, 7252, 7032, 666, 635]
+2023-08-27 07:43:21,821 | Tiempo total ejecución: 32268.432167053223

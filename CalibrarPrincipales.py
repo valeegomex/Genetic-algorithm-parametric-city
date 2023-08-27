@@ -19,7 +19,7 @@ if __name__ ==  '__main__':
     graph_obj = Graph.build_from_parameters(n=n, l=L, g=g, p=P)
     n_pross = 6
 
-    Y = 3750
+    Y =45000
     calibrador = Calibrador(n=n, graph_obj=graph_obj, tmode=tmode, passenger_obj=passenger_obj, Y=Y, L=L,
                             build=True, n_procesos=n_pross)
     frontera = calibrador.obtener_frontera()
