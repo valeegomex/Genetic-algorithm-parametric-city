@@ -1,0 +1,26 @@
+2023-09-06 18:37:18,124 | Ciudad 6 zonas, Y=1500, a=0.8, alpha=0.3, beta=0.35 
+Archivo poblacion inicial: zonas6size200SoloFactible 
+Estrategia: division tipo formula, d1=0.08, d2=0.248, adicionales: N/a 
+Tamaño población 200,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+2023-09-06 20:30:34,852 | Generacion: 1, mejor MVRC 8179.0855549686985, MVRC promedio 9945.148176213675, linea ganadora: [1280, 1090, 37, 200, 77, 333, 15, 403, 25, 30]
+2023-09-06 21:49:06,081 | Generacion: 2, mejor MVRC 8081.781065679449, MVRC promedio 9178.232391034258, linea ganadora: [1280, 1090, 35, 263, 200, 333, 77, 403, 30]
+2023-09-06 23:07:14,161 | Generacion: 3, mejor MVRC 8038.961378608474, MVRC promedio 8898.078860623395, linea ganadora: [1090, 35, 263, 77, 333, 368, 819, 403, 20, 25]
+2023-09-06 23:58:58,477 | Generacion: 4, mejor MVRC 8038.961378608474, MVRC promedio 8768.356284675629, linea ganadora: [1090, 35, 263, 77, 333, 368, 819, 403, 20, 25]
+2023-09-07 19:05:08,308 | Ciudad 6 zonas, Y=1500, a=0.8, alpha=0.3, beta=0.35 
+Archivo poblacion inicial: checkpoint 
+Estrategia: division tipo formula, d1=0.08, d2=0.248, adicionales: N/a 
+Tamaño población 200,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+2023-09-07 19:59:56,082 | Generacion: 1, mejor MVRC 8031.410736886305, MVRC promedio 8723.088670889407, linea ganadora: [35, 263, 72, 298, 333, 368, 403, 180, 21, 438, 30]
+2023-09-07 20:42:47,251 | Generacion: 2, mejor MVRC 8018.401058524666, MVRC promedio 8594.797242490686, linea ganadora: [263, 298, 333, 368, 403, 438, 3065]
+2023-09-07 21:18:41,601 | Generacion: 3, mejor MVRC 7984.304882009086, MVRC promedio 8558.877230944507, linea ganadora: [934, 263, 298, 333, 368, 403, 438, 25]
+2023-09-07 21:53:37,334 | Generacion: 4, mejor MVRC 7984.209673648672, MVRC promedio 8488.021223106298, linea ganadora: [934, 263, 298, 333, 368, 403, 438, 25]
+2023-09-07 22:17:41,479 | Generacion: 5, mejor MVRC 7978.9645612429385, MVRC promedio 8303.305319846553, linea ganadora: [2087, 263, 1007, 368, 403, 438, 30]
+2023-09-07 22:37:32,595 | Generacion: 6, mejor MVRC 7927.612948671875, MVRC promedio 8216.304700946559, linea ganadora: [263, 298, 333, 368, 403, 438, 439, 4376]
+2023-09-07 23:02:41,410 | Generacion: 7, mejor MVRC 7927.608944981849, MVRC promedio 8265.897548423944, linea ganadora: [263, 298, 333, 368, 403, 438, 439, 4376]
+2023-09-07 23:21:53,082 | Generacion: 8, mejor MVRC 7927.608944981849, MVRC promedio 8246.30067614169, linea ganadora: [263, 298, 333, 368, 403, 438, 439, 4376]
+2023-09-07 23:41:49,844 | Generacion: 9, mejor MVRC 7927.608944981849, MVRC promedio 8168.987823270865, linea ganadora: [263, 298, 333, 368, 403, 438, 439, 4376]
+2023-09-08 00:01:56,031 | Generacion: 10, mejor MVRC 7899.678564533367, MVRC promedio 8182.77028445031, linea ganadora: [2087, 263, 1007, 368, 403, 438, 4441]
