@@ -19,7 +19,7 @@ if __name__ ==  '__main__':
 
     # Pasajeros y modo de transporte
     pasajero=  passenger.Passenger(va=4, pv=2.74, pw=5.48, pa=0, pt=16, spv=2.74, spw=5.48, spa=0, spt=16)
-    tmode=  TransportMode(name='bus', bya=0, co=8.61 , c1=0.15, c2=0, v=20, t=2.5, fmax=150, kmax=160, theta=0.5, tat=0, d=1, fini=5)
+    tmode=  TransportMode(name='bus', bya=0, co=8.61 , c1=0.15, c2=0, v=20, t=2.5, fmax=150, kmax=160, theta=0.5, tat=0, d=1, fini=15)
 
     # Parámetros de la población
     size_poblacion= 200
@@ -40,16 +40,16 @@ if __name__ ==  '__main__':
     d1, d2, umbral = 0.026, 0.29, 0.809
     # d1, d2, umbral = 0.022, 0.244, 0.723
     # divisor = Divisor_formula(d1=d1, d2=d2, L=L)
-    divisor = Divisor_umbral(d1=d1, d2=d2, L=L, umbral=umbral)
+    # divisor = Divisor_umbral(d1=d1, d2=d2, L=L, umbral=umbral)
     # divisor = Divisor_intervalo(d1=d1, d2=d2, L=L, umbral=umbral, tolerancia = 0.2)
-    # divisor = Divisor_sin_division(d1=d1, d2=d2, L=L)
+    divisor = Divisor_sin_division(d1=d1, d2=d2, L=L)
 
     # Parámetros del algoritmo genético
-    gen_max=17
+    gen_max=14
 
     # Ejecutar algoritmo
     AG = Algoritmo_genetico(n_zonas= n_zonas, poblacion=poblacion, gen_max=gen_max,
-                             evaluador=evaluador, iterador=iterador, divisor=divisor, id='10', n_procesos=7,
+                             evaluador=evaluador, iterador=iterador, divisor=divisor, id='10', n_procesos=8,
                             name='zonas6size200SoloFactible')
 
     # 'zonas6size200SoloFactible'
