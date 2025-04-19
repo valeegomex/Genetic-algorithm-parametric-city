@@ -1,0 +1,24 @@
+2025-04-11 12:27:40,382 | Ciudad 6 zonas, Y=1500, a=0.8, alpha=0.3, beta=0.35 
+Archivo poblacion inicial: zonas6size200SoloFactible, usando 8 procesadores 
+Estrategia: sin division, d1=0.026, d2=0.29, adicionales: N/a 
+Tamaño población 200,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+2025-04-11 12:55:10,383 | Generacion: 1, mejor MVRC 8800.196, MVRC promedio 10987.912, linea ganadora: [5773, 1965, 6077, 3731, 469, 7285, 5405]
+2025-04-11 13:14:59,034 | Generacion: 2, mejor MVRC 8753.197, MVRC promedio 10107.651, linea ganadora: [5926, 2089, 6769, 7159, 6107, 511]
+2025-04-11 13:30:43,989 | Generacion: 3, mejor MVRC 8534.475, MVRC promedio 9746.251, linea ganadora: [5798, 3630, 7158, 2875]
+2025-04-11 13:46:01,060 | Generacion: 4, mejor MVRC 8520.401, MVRC promedio 9432.197, linea ganadora: [5798, 1970, 5109, 7158, 5662]
+2025-04-11 13:56:31,303 | Generacion: 5, mejor MVRC 8520.381, MVRC promedio 9106.291, linea ganadora: [5798, 1970, 5109, 7158, 5662]
+2025-04-11 14:05:52,108 | Generacion: 6, mejor MVRC 8512.267, MVRC promedio 9129.166, linea ganadora: [6977, 3630, 7151, 4246]
+2025-04-11 14:13:18,970 | Generacion: 7, mejor MVRC 8501.867, MVRC promedio 8869.137, linea ganadora: [4966, 5798, 3630, 7158, 5662]
+2025-04-11 14:20:07,384 | Generacion: 8, mejor MVRC 8398.204, MVRC promedio 8756.961, linea ganadora: [3878, 3630, 7252, 7032, 666]
+2025-04-11 14:25:26,365 | Generacion: 9, mejor MVRC 8393.104, MVRC promedio 8717.242, linea ganadora: [5798, 4199, 3630, 7158, 5662]
+2025-04-11 14:30:25,158 | Generacion: 10, mejor MVRC 8393.104, MVRC promedio 8648.195, linea ganadora: [5798, 4199, 3630, 7158, 5662]
+2025-04-11 14:35:02,983 | Generacion: 11, mejor MVRC 8393.104, MVRC promedio 8569.408, linea ganadora: [5798, 4199, 3630, 7158, 5662]
+2025-04-11 14:41:14,678 | Generacion: 12, mejor MVRC 8393.104, MVRC promedio 8635.071, linea ganadora: [5798, 4199, 3630, 7158, 5662]
+2025-04-11 14:46:34,419 | Generacion: 13, mejor MVRC 8393.104, MVRC promedio 8592.975, linea ganadora: [5798, 4199, 3630, 7158, 5662]
+2025-04-11 14:53:16,086 | Generacion: 14, mejor MVRC 8393.104, MVRC promedio 8573.989, linea ganadora: [5798, 4199, 3630, 7158, 5662]
+2025-04-11 14:58:30,262 | Generacion: 14, mejor MVRC 8389.842, MVRC promedio 8512.083, linea ganadora: [5798, 4199, 3630, 7032, 5662]
+2025-04-11 14:58:30,262 | Tiempo total ejecución: 9057.427818775177
+2025-04-11 14:58:30,262 | Mejor EDL [5798, 4199, 3630, 7032, 5662]
+2025-04-11 14:58:30,262 | Tiempo total ejecución: 9057.427818775177

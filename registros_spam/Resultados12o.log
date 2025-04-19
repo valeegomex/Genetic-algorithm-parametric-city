@@ -1,0 +1,32 @@
+2025-04-11 15:21:44,502 | Ciudad 6 zonas, Y=15000, a=0.8, alpha=0.5, beta=0.25 
+Archivo poblacion inicial: zonas6size200SoloFactible, usando 8 procesadores 
+Estrategia: sin division, d1=0.026, d2=0.29, adicionales: N/a 
+Tamaño población 200,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+2025-04-11 15:40:06,338 | Generacion: 1, mejor MVRC 74375.072, MVRC promedio 86035.327, linea ganadora: [7072, 2116, 6761, 5866, 1708, 6220, 4015, 1882, 1694]
+2025-04-11 15:53:41,430 | Generacion: 2, mejor MVRC 74306.286, MVRC promedio 81842.224, linea ganadora: [2691, 4044, 1836, 7252, 1813, 3508, 3990]
+2025-04-11 16:58:24,418 | Ciudad 6 zonas, Y=15000, a=0.8, alpha=0.5, beta=0.25 
+Archivo poblacion inicial: zonas6size200SoloFactible, usando 8 procesadores 
+Estrategia: sin division, d1=0.026, d2=0.29, adicionales: N/a 
+Tamaño población 200,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+2025-04-11 17:15:50,962 | Generacion: 1, mejor MVRC 74375.072, MVRC promedio 86035.327, linea ganadora: [7072, 2116, 6761, 5866, 1708, 6220, 4015, 1882, 1694]
+2025-04-11 17:29:38,388 | Generacion: 2, mejor MVRC 73122.721, MVRC promedio 81007.174, linea ganadora: [5095, 6952, 2027, 882, 1557, 597, 7198]
+2025-04-11 17:41:38,138 | Generacion: 3, mejor MVRC 71460.342, MVRC promedio 79239.472, linea ganadora: [5573, 5095, 1418, 1836, 4214, 6614, 6207]
+2025-04-11 17:53:26,474 | Generacion: 4, mejor MVRC 70639.687, MVRC promedio 78165.719, linea ganadora: [5573, 5640, 1836, 2002, 7261, 6207]
+2025-04-11 18:04:51,986 | Generacion: 5, mejor MVRC 70643.898, MVRC promedio 77228.26, linea ganadora: [5573, 5640, 1836, 2002, 7261, 6207]
+2025-04-11 18:15:34,983 | Generacion: 6, mejor MVRC 70538.322, MVRC promedio 76233.606, linea ganadora: [5573, 5640, 1836, 2002, 1882, 7261, 6207]
+2025-04-11 18:25:43,384 | Generacion: 7, mejor MVRC 70154.107, MVRC promedio 75728.211, linea ganadora: [6945, 2494, 5647, 6996, 1882, 4860, 2013, 1694]
+2025-04-11 18:34:38,238 | Generacion: 8, mejor MVRC 69078.047, MVRC promedio 74940.226, linea ganadora: [3587, 1836, 5647, 5940, 4214, 983, 1882, 7198]
+2025-04-11 18:42:56,464 | Generacion: 9, mejor MVRC 69078.047, MVRC promedio 74763.739, linea ganadora: [3587, 1836, 5647, 5940, 4214, 983, 1882, 7198]
+2025-04-11 18:50:44,534 | Generacion: 10, mejor MVRC 69078.047, MVRC promedio 74118.919, linea ganadora: [3587, 1836, 5647, 5940, 4214, 983, 1882, 7198]
+2025-04-11 18:57:57,685 | Generacion: 11, mejor MVRC 69078.047, MVRC promedio 73604.673, linea ganadora: [3587, 1836, 5647, 5940, 4214, 983, 1882, 7198]
+2025-04-11 19:04:32,437 | Generacion: 12, mejor MVRC 68938.099, MVRC promedio 72816.707, linea ganadora: [3587, 5642, 1836, 7249, 983, 7032, 1882]
+2025-04-11 19:12:07,081 | Generacion: 13, mejor MVRC 68938.099, MVRC promedio 72980.318, linea ganadora: [3587, 5642, 1836, 7249, 983, 7032, 1882]
+2025-04-11 19:18:12,646 | Generacion: 14, mejor MVRC 68702.803, MVRC promedio 72186.102, linea ganadora: [3587, 1731, 1836, 983, 7032, 1882, 4797]
+2025-04-11 19:23:21,404 | Generacion: 14, mejor MVRC 68395.24, MVRC promedio 71556.702, linea ganadora: [3587, 5640, 1836, 983, 7032, 7257, 1882]
+2025-04-11 19:23:21,404 | Tiempo total ejecución: 8704.192115068436
+2025-04-11 19:23:21,404 | Mejor EDL [3587, 5640, 1836, 983, 7032, 7257, 1882]
+2025-04-11 19:23:21,404 | Tiempo total ejecución: 8704.192115068436

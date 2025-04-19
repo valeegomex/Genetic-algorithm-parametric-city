@@ -1,0 +1,24 @@
+2025-04-15 08:27:36,765 | Ciudad 6 zonas, Y=15000, a=0.8, alpha=0.5, beta=0.25 
+Archivo poblacion inicial: zonas6size200SoloFactible, usando 8 procesadores 
+Estrategia: division tipo umbral, d1=0.01, d2=0.25, adicionales: umbral=0.801 
+Tamaño población 200,elitismo 0.2, densidad máxima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutación 0.1 
+
+2025-04-15 10:14:08,945 | Generacion: 1, mejor MVRC 67259.90530574362, MVRC promedio 80098.29223507285, linea ganadora: [288, 69, 37, 200, 2313, 298, 76, 333, 19, 438, 439, 185, 1276]
+2025-04-15 11:07:47,689 | Generacion: 2, mejor MVRC 67259.90131381713, MVRC promedio 75333.61332522602, linea ganadora: [288, 69, 37, 200, 2313, 298, 76, 333, 19, 438, 439, 185, 1276]
+2025-04-15 11:54:43,694 | Generacion: 3, mejor MVRC 67259.90131381713, MVRC promedio 74196.12604348644, linea ganadora: [288, 69, 37, 200, 2313, 298, 76, 333, 19, 438, 439, 185, 1276]
+2025-04-15 12:46:44,187 | Generacion: 4, mejor MVRC 66493.50603641888, MVRC promedio 72596.83356538364, linea ganadora: [1185, 37, 70, 1096, 4973, 368, 403, 438, 3065, 1086]
+2025-04-15 13:30:21,014 | Generacion: 5, mejor MVRC 66292.69387755365, MVRC promedio 72256.34877237162, linea ganadora: [36, 197, 37, 773, 43, 44, 45, 236, 3055, 368, 50, 403, 819, 53, 438, 25, 2171]
+2025-04-15 14:14:40,254 | Generacion: 6, mejor MVRC 66074.3482985926, MVRC promedio 71904.15811220095, linea ganadora: [263, 72, 297, 298, 265, 268, 333, 46, 336, 368, 403, 3059, 438, 29, 3358]
+2025-04-15 14:53:51,893 | Generacion: 7, mejor MVRC 65370.34176133551, MVRC promedio 71648.04067998951, linea ganadora: [33, 196, 263, 298, 333, 1007, 176, 368, 403, 371, 21, 438, 1502]
+2025-04-15 15:28:53,775 | Generacion: 8, mejor MVRC 65370.34176133551, MVRC promedio 70985.78803300242, linea ganadora: [33, 196, 263, 298, 333, 1007, 176, 368, 403, 371, 21, 438, 1502]
+2025-04-15 15:59:13,783 | Generacion: 9, mejor MVRC 65370.34176133551, MVRC promedio 70529.06320411517, linea ganadora: [33, 196, 263, 298, 333, 1007, 176, 368, 403, 371, 21, 438, 1502]
+2025-04-15 16:28:21,884 | Generacion: 10, mejor MVRC 65340.620182027444, MVRC promedio 70710.1190760072, linea ganadora: [33, 196, 263, 298, 300, 333, 1007, 368, 403, 438, 989, 30]
+2025-04-15 17:00:38,417 | Generacion: 11, mejor MVRC 65340.620182027444, MVRC promedio 69771.60492372813, linea ganadora: [33, 196, 263, 298, 300, 333, 1007, 368, 403, 438, 989, 30]
+2025-04-15 17:25:55,875 | Generacion: 12, mejor MVRC 65340.620182027444, MVRC promedio 70162.84285960329, linea ganadora: [33, 196, 263, 298, 300, 333, 1007, 368, 403, 438, 989, 30]
+2025-04-15 17:48:23,466 | Generacion: 13, mejor MVRC 65340.620182027444, MVRC promedio 69721.64810901583, linea ganadora: [33, 196, 263, 298, 300, 333, 1007, 368, 403, 438, 989, 30]
+2025-04-15 18:13:19,127 | Generacion: 14, mejor MVRC 65340.620182027444, MVRC promedio 69235.79285821438, linea ganadora: [33, 196, 263, 298, 300, 333, 1007, 368, 403, 438, 989, 30]
+2025-04-15 18:18:04,869 | Generacion: 14, mejor MVRC 65340.62, MVRC promedio 70146.644, linea ganadora: [33, 196, 263, 298, 300, 333, 1007, 368, 403, 438, 989, 30]
+2025-04-15 18:18:04,869 | Tiempo total ejecución: 35435.29841589928
+2025-04-15 18:18:04,869 | Mejor EDL [33, 196, 263, 298, 300, 333, 1007, 368, 403, 438, 989, 30]
+2025-04-15 18:18:04,869 | Tiempo total ejecución: 35435.29841589928
