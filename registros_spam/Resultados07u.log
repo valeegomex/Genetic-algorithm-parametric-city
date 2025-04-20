@@ -1,15 +1,9 @@
-2023-08-10 20:22:25,256 | Ciudad 6 zonas, Y=1500, a=0.8, alpha=0.3, beta=0.35 
-Archivo poblacion inicial: Na 
-Estrategia: division tipo umbral, d1=0.08, d2=0.248, adicionales: umbral=0.67 
-Tamaño población 20,elitismo 0.2, densidad máxima EDL 12, 
-crossover para los 0.5 mejores y probabilidad mutación 0.1 
-
 2023-08-10 20:29:20,246 | Generacion: 1, mejor MVRC 8547.310428180828, MVRC promedio 9758.525260683089, linea ganadora: [320, 352, 263, 2696, 299, 16, 242, 2260, 53, 439, 3227, 61, 254]
 2023-08-10 20:36:46,994 | Ciudad 6 zonas, Y=15000, a=0.8, alpha=0.5, beta=0.25 
 Archivo poblacion inicial: zonas6size200SoloFactible 
 Estrategia: division tipo umbral, d1=0.01, d2=0.25, adicionales: umbral=0.801 
-Tamaño población 20,elitismo 0.2, densidad máxima EDL 12, 
-crossover para los 0.5 mejores y probabilidad mutación 0.1 
+Tamaï¿½o poblaciï¿½n 20,elitismo 0.2, densidad mï¿½xima EDL 12, 
+crossover para los 0.5 mejores y probabilidad mutaciï¿½n 0.1 
 
 2023-08-10 21:57:59,119 | Generacion: 1, mejor MVRC 71178.78419111097, MVRC promedio 78140.3131067959, linea ganadora: [324, 69, 68, 71, 2027, 235, 45, 15, 1007, 16, 17, 21, 247, 985, 61, 30, 223]
 2023-08-10 22:26:28,191 | Generacion: 2, mejor MVRC 70211.21307358518, MVRC promedio 75969.41694737584, linea ganadora: [324, 69, 68, 71, 43, 2188, 45, 17, 21, 53, 3929, 26, 985, 61, 223]
@@ -29,6 +23,6 @@ crossover para los 0.5 mejores y probabilidad mutación 0.1
 2023-08-11 04:03:05,292 | Generacion: 16, mejor MVRC 67277.79671210305, MVRC promedio 70393.98494387811, linea ganadora: [324, 263, 264, 43, 45, 77, 368, 17, 16, 403, 53, 7038, 223]
 2023-08-11 04:24:20,163 | Generacion: 17, mejor MVRC 66865.84434783169, MVRC promedio 71751.05098509513, linea ganadora: [324, 263, 43, 45, 77, 368, 17, 403, 2387, 53, 819, 26, 219, 28, 222]
 2023-08-11 04:32:17,281 | Generacion: 17, mejor MVRC 66865.704, MVRC promedio 71054.617, linea ganadora: [324, 263, 43, 77, 45, 368, 17, 403, 2387, 53, 819, 26, 219, 28, 222]
-2023-08-11 04:32:17,286 | Tiempo total ejecución: 28546.896201610565
+2023-08-11 04:32:17,286 | Tiempo total ejecuciï¿½n: 28546.896201610565
 2023-08-11 04:32:17,288 | Mejor EDL [324, 263, 43, 77, 45, 368, 17, 403, 2387, 53, 819, 26, 219, 28, 222]
-2023-08-11 04:32:17,290 | Tiempo total ejecución: 28546.896201610565
+2023-08-11 04:32:17,290 | Tiempo total ejecuciï¿½n: 28546.896201610565
