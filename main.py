@@ -23,7 +23,7 @@ if __name__ ==  '__main__':
 
     # Parámetros de la población
     size_poblacion= 200
-    densidad_max_edl= 12
+    densidad_max_edl= 40
     poblacion = Poblacion(size=size_poblacion, max_densitiy=densidad_max_edl)
 
     # Parámetros del evaluador
@@ -50,6 +50,6 @@ if __name__ ==  '__main__':
     # Ejecutar algoritmo
     AG = Algoritmo_genetico(n_zonas= n_zonas, poblacion=poblacion, gen_max=gen_max,
                              evaluador=evaluador, iterador=iterador, divisor=divisor, id='13', n_procesos=8,
-                            name='zonas6size200SoloFactible')
+                            name='zonas6size200DIR')
 
     # 'zonas6size200SoloFactible'

@@ -99,25 +99,30 @@ class Evaluador:
             ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd)
         pass
 
-    def quitar_infactibles(self, bd: BD, poblacion: Poblacion):
+    def quitar_infactibles(self, bd: BD, poblacion: Poblacion, logger: logging.Logger):
         """
         Reemplaza los individuos infactibles de la población por otros factibles aleatoriamente.
         :param poblacion: Conjunto de individuos.
         :param bd: Base de datos de línea.
         :return:
         """
+        logger.info('Eliminar infactibles')
         OD_matrix = self.matriz_demanda(self.n_zonas)
         new_individuos = []
         for ind in poblacion.get_population():
+            logger.info(f'\n Evaluando posicion {len(new_individuos)}')
             validator = ind.validate(OD_matrix)
             if validator: # Si es válido pasa directo
                 new_individuos.append(ind)
+                logger.info('Estructura de línea aceptada')
             else: # Iterar hasta encontrar uno válido.
                 ind_new = None
                 while not validator:
+                    logger.info('Estructura de linea rechazada')
                     ind_new = poblacion.ind_nuevo_azar(bd)
                     self.construir_un_individuo(ind_new, bd)
                     validator = ind_new.validate(OD_matrix)
+                logger.info('Estructura de lina aceptada.')
                 # Reemplazar con el nuevo
                 new_individuos.append(ind_new)
 
