@@ -87,7 +87,8 @@ class Individuo:
         """
         return self.indice_divisibilidad
 
-    def build_network(self, n: int, L: float, g: float, P: float, custom_tmode: TransportMode, bd: BD):
+    def build_network(self, n: int, L: float, g: float, P: float, custom_tmode: TransportMode, bd: BD,
+                      Gi: list[float]|None = None, Hi: list[float]|None = None):
         """
         Construye la red en sidermit y guarda los atributos "network_sidermit" y "graph_sidermir".
         :param n: int. Cantidad de zonas de la ciudad.
@@ -100,7 +101,7 @@ class Individuo:
         :return:
         """
         # build city graph
-        graph_obj = Graph.build_from_parameters(n, L, g, P)
+        graph_obj = Graph.build_from_parameters(n, L, g, P, Gi=Gi, Hi=Hi)
         # build a network without routes
         network_obj = TransportNetwork(graph_obj)
 

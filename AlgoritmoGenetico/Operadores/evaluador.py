@@ -16,7 +16,8 @@ logging.getLogger("sidermit").setLevel(logging.WARNING)
 
 class Evaluador:
     def __init__(self, passenger_obj: Passenger, custom_tmode: TransportMode, L: float, g: float, P:float, Y: float,
-                 a: float, alpha: float, beta: float, n_zonas: int):
+                 a: float, alpha: float, beta: float, n_zonas: int, theta: list[float]|None = None,
+                 Gi: list[float]|None = None, Hi: list[float]|None = None):
         """
         :param passenger_obj: Pasajero.
         :param custom_tmode: Modo de transporte.
@@ -28,8 +29,11 @@ class Evaluador:
         self.P = P
         self.Y = Y
         self.a = a
+        self.Gi = Gi
+        self.Hi = Hi
         self.alpha = alpha
         self.beta = beta
+        self.theta = theta
         self.mvrc_min = 0
         self.edl_minimal = None
         self.mvrc_mean = 0
@@ -83,8 +87,8 @@ class Evaluador:
         :param n: Cantidad de zonas de la ciudad.
         :return:
         """
-        graph_obj = Graph.build_from_parameters(n, self.L, self.g, self.P)
-        demand_obj = Demand.build_from_parameters(graph_obj, self.Y, self.a, self.alpha, self.beta)
+        graph_obj = Graph.build_from_parameters(n, self.L, self.g, self.P, Gi=self.Gi, Hi=self.Hi)
+        demand_obj = self.get_demand(graph_obj)
 
         return demand_obj.get_matrix()
 
@@ -96,7 +100,8 @@ class Evaluador:
         :return:
         """
         for ind in poblacion.get_population():
-            ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd)
+            ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd,
+                              Gi=self.Gi, Hi=self.Hi)
         pass
 
     def quitar_infactibles(self, bd: BD, poblacion: Poblacion, logger: logging.Logger):
@@ -137,7 +142,8 @@ class Evaluador:
         :param bd: Base de datos de línea.
         :return:
         """
-        ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd)
+        ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd,
+                          Gi=self.Gi, Hi=self.Hi)
         pass
 
     def evaluar_poblacion(self, poblacion: Poblacion, bd: BD):
@@ -160,8 +166,9 @@ class Evaluador:
         # Iterar sobre los individuos
         for ind in poblacion.get_population():
             if not ind.optimizado:
-                ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd)
-                demand_obj = Demand.build_from_parameters(ind.graph_sidermit, self.Y, self.a, self.alpha, self.beta)
+                ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd,
+                                  Gi=self.Gi, Hi=self.Hi)
+                demand_obj = self.get_demand(ind.graph_sidermit)
                 # Optimizar
                 ind.optimize(demand_obj, self.pasajero, bd)
                 logger.info(f'Optimizando: {ind.get_id_lineas()} ')
@@ -201,7 +208,7 @@ class Evaluador:
         # Iterar sobre los individuos
         for ind in individuos:
             if not ind.optimizado:
-                demand_obj = Demand.build_from_parameters(ind.graph_sidermit, self.Y, self.a, self.alpha, self.beta)
+                demand_obj = self.get_demand(ind.graph_sidermit)
                 msge = ind.optimize_multiprocess(demand_obj, self.pasajero)
                 logger.info(f'Optimizando: {ind.get_id_lineas()} ' + msge)
             # Guardar en el objeto compartido
@@ -223,7 +230,8 @@ class Evaluador:
         # Construir individuos y quitarles las variables que no se pueden migrar a la memoria compartida
         for ind in poblacion.get_population():
             ind.reset()
-            ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd)
+            ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd,
+                              Gi=self.Gi, Hi=self.Hi)
 
         # Crear el conjunto de individuos que irá a cada proceso
         step = len(poblacion.get_population())//n_procesos
@@ -302,8 +310,9 @@ class Evaluador:
         :return:
         """
         if not ind.optimizado:
-            ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd)
-            demand_obj = Demand.build_from_parameters(ind.graph_sidermit, self.Y, self.a, self.alpha, self.beta)
+            ind.build_network(n=bd.get_n(), L=self.L, g=self.g, P=self.P, custom_tmode=self.tmode, bd=bd,
+                              Gi=self.Gi, Hi=self.Hi)
+            demand_obj = self.get_demand(ind.graph_sidermit)
             # Optimizar
             ind.optimize(demand_obj, self.pasajero, bd)
         pass
@@ -332,3 +341,17 @@ class Evaluador:
                 break
             # log the message
             logger.handle(message)
+
+    def get_demand(self, graph_obj: Graph) -> Demand:
+        """
+        To build OD matrix with parameters. If self.theta is None, then it calls the symmetric demand function.
+        Otherwise, it calls the asymmetric demand function.
+        :param graph_obj: city graph object, necessary to recognize the id of the created nodes and compatibility
+        with that of the OD matrix.
+        """
+        if self.theta is None:
+            demand_obj = Demand.build_from_parameters(graph_obj, self.Y, self.a, self.alpha, self.beta)
+        else:
+            demand_obj = Demand.build_from_parameters_asymmetric(graph_obj, self.Y, self.a, self.alpha, self.beta, self.theta)
+
+        return demand_obj

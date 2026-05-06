@@ -15,20 +15,20 @@ if __name__ ==  '__main__':
     logging.getLogger("sidermit").setLevel(logging.WARNING)
 
     # Cantidad de zonas ciudad
-    n_zonas= 6
+    n_zonas= 7
 
     # Pasajeros y modo de transporte
     pasajero=  passenger.Passenger(va=4, pv=2.74, pw=5.48, pa=0, pt=16, spv=2.74, spw=5.48, spa=0, spt=16)
     tmode=  TransportMode(name='bus', bya=0, co=8.61 , c1=0.15, c2=0, v=20, t=2.5, fmax=150, kmax=160, theta=0.5, tat=0, d=1, fini=15)
 
     # Parámetros de la población
-    size_poblacion= 200
-    densidad_max_edl= 40
+    size_poblacion= 50
+    densidad_max_edl= 20
     poblacion = Poblacion(size=size_poblacion, max_densitiy=densidad_max_edl)
 
     # Parámetros del evaluador
-    L, g, P = 10, 1.8, 1
-    Y, a, alpha, beta = 15000, 0.8, 0.5, 0.25
+    L, g, P = 10, 0.85, 1
+    Y, a, alpha, beta = 2565622, 0.78, 0.25, 0.22
     evaluador = Evaluador(passenger_obj=pasajero, custom_tmode=tmode, L=L, g=g, P=P, Y=Y, a=a, alpha=alpha, beta=beta,
                           n_zonas=n_zonas)
 
@@ -40,16 +40,16 @@ if __name__ ==  '__main__':
     d1, d2, umbral = 0.01, 0.25, 0.801
     # d1, d2, umbral = 0.022, 0.244, 0.723
     # divisor = Divisor_formula(d1=d1, d2=d2, L=L)
-    divisor = Divisor_umbral(d1=d1, d2=d2, L=L, umbral=umbral)
+    # divisor = Divisor_umbral(d1=d1, d2=d2, L=L, umbral=umbral)
     # divisor = Divisor_intervalo(d1=d1, d2=d2, L=L, umbral=umbral, tolerancia = 0.2)
-    # divisor = Divisor_sin_division(d1=d1, d2=d2, L=L)
+    divisor = Divisor_sin_division(d1=d1, d2=d2, L=L)
 
     # Parámetros del algoritmo genético
     gen_max=14
 
     # Ejecutar algoritmo
-    AG = Algoritmo_genetico(n_zonas= n_zonas, poblacion=poblacion, gen_max=gen_max,
-                             evaluador=evaluador, iterador=iterador, divisor=divisor, id='13', n_procesos=8,
-                            name='zonas6size200DIR')
+    AG = Algoritmo_genetico(n_zonas=n_zonas, poblacion=poblacion, gen_max=gen_max,
+                             evaluador=evaluador, iterador=iterador, divisor=divisor, id='20', n_procesos=1,
+                            name=None)
 
     # 'zonas6size200SoloFactible'

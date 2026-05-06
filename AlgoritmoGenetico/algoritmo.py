@@ -36,6 +36,7 @@ class Algoritmo_genetico:
         :param evaluador: Evaluador.
         :param iterador: Iterador.
         :param divisor: Divisor.
+        :param name: File with the population previously built.
         """
 
         self.n = n_zonas
@@ -62,12 +63,12 @@ class Algoritmo_genetico:
         # evaluador.quitar_infactibles(bd, poblacion)
 
         resultados = []
-        logger_r.info(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta} \n'
+        logger_r.info(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta}, theta={evaluador.theta}\n'
                           f'Archivo poblacion inicial: {name}, usando {n_procesos} procesadores \n'
                           f'Estrategia: {divisor.get_name()}, d1={divisor.d1}, d2={divisor.d2}, adicionales: {divisor.get_info_adicional()} \n'
                           f'Tamaño población {self.size_poblacion},elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, \n'
                           f'crossover para los {self.p_crossover} mejores y probabilidad mutación {self.prob_mutacion} \n')
-        logger.info(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta} \n'
+        logger.info(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta}, theta={evaluador.theta} \n'
                     f'Archivo poblacion inicial: {name} \n'
                     f'Estrategia: {divisor.get_name()}, d1={divisor.d1}, d2={divisor.d2}, adicionales: {divisor.get_info_adicional()} \n'
                     f'Tamaño población {self.size_poblacion},elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, \n'

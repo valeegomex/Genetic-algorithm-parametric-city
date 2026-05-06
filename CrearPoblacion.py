@@ -11,7 +11,7 @@ from AlgoritmoGenetico.algoritmo import Algoritmo_genetico
 
 # Crear bd y poblacion aleatoria
 
-n_zonas = 6
+n_zonas = 7
 bd = BD(n_zonas)
 
 size_poblacion = 200
@@ -24,13 +24,21 @@ pasajero=  passenger.Passenger(va=4, pv=2.74, pw=5.48, pa=0, pt=16, spv=2.74, sp
 tmode=  TransportMode(name='bus', bya=0, co=8.61 , c1=0.15, c2=0, v=20, t=2.5, fmax=150, kmax=160, theta=0.5, tat=0, d=1, fini=15)
 
 # Parámetros del evaluador
-L, g, P = 10, 1.8, 1
-Y, a, alpha, beta = 15000, 0.8, 0.5, 0.25
+L, g, P = 11.65, 0.79, 1
+G_inner = 1
+G_outer = 5.35
+Gi = [G_inner, G_outer, G_inner, G_outer, G_inner, G_inner, G_outer]
+Hi = Gi
+Y, a, alpha, beta = 4500000, 0.91, 0.0033, 0.287
+theta_inner = 0.249*n_zonas
+theta_outer = 0.0004*n_zonas
+theta = [theta_inner, theta_outer, theta_inner, theta_outer, theta_inner, theta_inner, theta_outer]
 evaluador = Evaluador(passenger_obj=pasajero, custom_tmode=tmode, L=L, g=g, P=P, Y=Y, a=a, alpha=alpha, beta=beta,
-                      n_zonas=n_zonas)
+                      n_zonas=n_zonas, theta=theta, Gi=Gi, Hi=Hi)
 
 # Desactivar logging de sidermit
-logging.getLogger("sidermit").setLevel(logging.WARNING)
+# logging.getLogger("sidermit").setLevel(logging.WARNING)
+logging.getLogger("sidermit").setLevel(logging.INFO)
 
 # Crear mensajes propios
 logger = logging.getLogger(__name__)
@@ -47,7 +55,7 @@ evaluador.construir_individuos(poblacion, bd)
 evaluador.quitar_infactibles(bd, poblacion, logger)
 
 # Guardar en un archivo
-poblacion.save_edl_population('zonas6size200DIR')
+poblacion.save_edl_population('LosAngelesProblacionInicial')
 
 # n_zonas = 4
 # bd = BD(n_zonas)
