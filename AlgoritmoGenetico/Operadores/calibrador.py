@@ -207,7 +207,6 @@ class Calibrador():
         """
         # demand parameters
         a_list = [0.3, 0.5, 0.7]
-        # a_list = [0.3]
         alpha_list = np.linspace(0, 1, 10, endpoint=False).round(3)
         beta_list = np.linspace(0, 1, 10, endpoint=False).round(3)
 
@@ -350,7 +349,6 @@ class Calibrador():
         """
         # demand parameters
         a_list = [0.3, 0.5, 0.7]
-        # a_list = [0.3]
         alpha_list = np.linspace(0, 1, 10, endpoint=False).round(3)
         beta_list = np.linspace(0, 1, 10, endpoint=False).round(3)
 
