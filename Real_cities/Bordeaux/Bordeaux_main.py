@@ -12,99 +12,91 @@ import logging
 
 if __name__ ==  '__main__':
     # Desactivar logging de sidermit
-    logging.getLogger("sidermit").setLevel(logging.WARNING)
+    logging.getLogger("sidermit").setLevel(logging.INFO)
 
     # Cantidad de zonas ciudad
     n_zonas= 3
 
     # Pasajeros y modo de transporte
     pasajero=  passenger.Passenger(va=4, pv=2.74, pw=5.48, pa=0, pt=16, spv=2.74, spw=5.48, spa=0, spt=16)
-    tmode=  TransportMode(name='bus', bya=0, co=8.61 , c1=0.15, c2=0, v=20, t=2.5, fmax=150, kmax=160, theta=0.5, tat=0, d=1, fini=15)
+    tmode=  TransportMode(name='bus', bya=0, co=8.61 , c1=0.15, c2=0, v=20, t=2.5, fmax=2000, kmax=160, theta=0.5, tat=0, d=1, fini=200)
+
+    # Parámetros de la población
+    size_poblacion = 200
+    densidad_max_edl = 15
+
+    # Parámetros del evaluador
+    L, g, P = 6.6, 1.2, 1
+    Y, a, alpha, beta = int(250000/1000), 0.3, 0.18, 0.72
+
+    # Parámetros del iterador
+    p_elitismo, prob_mutacion, p_crossover = 0.2, 0.1, 0.5
+
+    # Parámetros del divisor
+    d1, d2, umbral = 0.040, 0.221, 0.581
+
+    # Parámetros del algoritmo genético
+    gen_max = 14
+    initial_population_file = 'BordeauxPoblacionInicial4'
+    n_procesos = 10
 
     ### ------- Original --------------------
 
     # Parámetros de la población
-    size_poblacion= 200
-    densidad_max_edl= 20
     poblacion = Poblacion(size=size_poblacion, max_densitiy=densidad_max_edl)
 
     # Parámetros del evaluador
-    L, g, P = 6.6, 1.2, 1
-    Y, a, alpha, beta = 250000/24, 0.3, 0.18, 0.72
     evaluador = Evaluador(passenger_obj=pasajero, custom_tmode=tmode, L=L, g=g, P=P, Y=Y, a=a, alpha=alpha, beta=beta,
                           n_zonas=n_zonas)
 
     # Parámetros del iterador
-    p_elitismo, prob_mutacion, p_crossover = 0.2, 0.1, 0.5
     iterador = Iterador(p_elitismo=p_elitismo, prob_mutacion=prob_mutacion, p_crossover=p_crossover)
 
     # Parámetros del divisor
-    d1, d2, umbral = 0.027, 0.247, 0.719
     divisor = Divisor_sin_division(d1=d1, d2=d2, L=L)
-
-    # Parámetros del algoritmo genético
-    gen_max=14
 
     # Ejecutar algoritmo
     AG = Algoritmo_genetico(n_zonas=n_zonas, poblacion=poblacion, gen_max=gen_max,
-                             evaluador=evaluador, iterador=iterador, divisor=divisor, id='101', n_procesos=8,
-                            name='BordeauxPoblacionInicial2')
+                             evaluador=evaluador, iterador=iterador, divisor=divisor, id='109', n_procesos=n_procesos,
+                            name=initial_population_file)
 
     # --------- Umbral ---------------
 
-    # Parámetros de la población
-    size_poblacion = 200
-    densidad_max_edl = 20
-    poblacion = Poblacion(size=size_poblacion, max_densitiy=densidad_max_edl)
-
-    # Parámetros del evaluador
-    L, g, P = 6.6, 1.2, 1
-    Y, a, alpha, beta = 250000/24, 0.3, 0.18, 0.72
-    evaluador = Evaluador(passenger_obj=pasajero, custom_tmode=tmode, L=L, g=g, P=P, Y=Y, a=a, alpha=alpha, beta=beta,
-                          n_zonas=n_zonas)
-
-    # Parámetros del iterador
-    p_elitismo, prob_mutacion, p_crossover = 0.2, 0.1, 0.5
-    iterador = Iterador(p_elitismo=p_elitismo, prob_mutacion=prob_mutacion, p_crossover=p_crossover)
-
-    # Parámetros del divisor
-    d1, d2, umbral = 0.023, 0.357, 0.963
-    divisor = Divisor_umbral(d1=d1, d2=d2, L=L, umbral=umbral)
-
-    # Parámetros del algoritmo genético
-    gen_max = 14
-
-    # Ejecutar algoritmo
-    AG = Algoritmo_genetico(n_zonas=n_zonas, poblacion=poblacion, gen_max=gen_max,
-                            evaluador=evaluador, iterador=iterador, divisor=divisor, id='104', n_procesos=8,
-                            name='BordeauxPoblacionInicial2')
-
-    # --------- Formula ---------------
-
-    # Parámetros de la población
-    size_poblacion = 200
-    densidad_max_edl = 20
-    poblacion = Poblacion(size=size_poblacion, max_densitiy=densidad_max_edl)
-
-    # Parámetros del evaluador
-    L, g, P = 6.6, 1.2, 1
-    Y, a, alpha, beta = 250000/24, 0.3, 0.18, 0.72
-    evaluador = Evaluador(passenger_obj=pasajero, custom_tmode=tmode, L=L, g=g, P=P, Y=Y, a=a, alpha=alpha, beta=beta,
-                          n_zonas=n_zonas)
-
-    # Parámetros del iterador
-    p_elitismo, prob_mutacion, p_crossover = 0.2, 0.1, 0.5
-    iterador = Iterador(p_elitismo=p_elitismo, prob_mutacion=prob_mutacion, p_crossover=p_crossover)
-
-    # Parámetros del divisor
-    d1, d2, umbral = 0.023, 0.357, 0.963
-    divisor = Divisor_formula(d1=d1, d2=d2, L=L)
-
-    # Parámetros del algoritmo genético
-    gen_max = 14
-
-    # Ejecutar algoritmo
-    AG = Algoritmo_genetico(n_zonas=n_zonas, poblacion=poblacion, gen_max=gen_max,
-                            evaluador=evaluador, iterador=iterador, divisor=divisor, id='105', n_procesos=8,
-                            name='BordeauxPoblacionInicial2')
+    # # Parámetros de la población
+    # poblacion = Poblacion(size=size_poblacion, max_densitiy=densidad_max_edl)
+    #
+    # # Parámetros del evaluador
+    # evaluador = Evaluador(passenger_obj=pasajero, custom_tmode=tmode, L=L, g=g, P=P, Y=Y, a=a, alpha=alpha, beta=beta,
+    #                       n_zonas=n_zonas)
+    #
+    # # Parámetros del iterador
+    # iterador = Iterador(p_elitismo=p_elitismo, prob_mutacion=prob_mutacion, p_crossover=p_crossover)
+    #
+    # # Parámetros del divisor
+    # divisor = Divisor_umbral(d1=d1, d2=d2, L=L, umbral=umbral)
+    #
+    # # Ejecutar algoritmo
+    # AG = Algoritmo_genetico(n_zonas=n_zonas, poblacion=poblacion, gen_max=gen_max,
+    #                         evaluador=evaluador, iterador=iterador, divisor=divisor, id='104', n_procesos=n_procesos,
+    #                         name=initial_population_file)
+    #
+    # # --------- Formula ---------------
+    #
+    # # Parámetros de la población
+    # poblacion = Poblacion(size=size_poblacion, max_densitiy=densidad_max_edl)
+    #
+    # # Parámetros del evaluador
+    # evaluador = Evaluador(passenger_obj=pasajero, custom_tmode=tmode, L=L, g=g, P=P, Y=Y, a=a, alpha=alpha, beta=beta,
+    #                       n_zonas=n_zonas)
+    #
+    # # Parámetros del iterador
+    # iterador = Iterador(p_elitismo=p_elitismo, prob_mutacion=prob_mutacion, p_crossover=p_crossover)
+    #
+    # # Parámetros del divisor
+    # divisor = Divisor_formula(d1=d1, d2=d2, L=L)
+    #
+    # # Ejecutar algoritmo
+    # AG = Algoritmo_genetico(n_zonas=n_zonas, poblacion=poblacion, gen_max=gen_max,
+    #                         evaluador=evaluador, iterador=iterador, divisor=divisor, id='105', n_procesos=n_procesos,
+    #                         name=initial_population_file)
 

@@ -12,17 +12,22 @@ if __name__ == '__main__':
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
-    tmode = TransportMode(name='bus', bya=0, co=8.61, c1=0.15, c2=0, v=20, t=2.5, fmax=1000, kmax=160, theta=0.5, tat=0,
-                          d=1, fini=200)
+    tmode = TransportMode(name='bus', bya=0, co=8.61, c1=0.15, c2=0, v=20, t=2.5, fmax=80, kmax=160, theta=0.5, tat=0,
+                          d=1, fini=10)
+    # tmode = TransportMode("metro", 0, 80.91, 0.3, 0,
+    #                                          40, 0.33, 40, 1440, 0.5, 0, 1, 28)
     passenger_obj = passenger.Passenger(va=4, pv=2.74, pw=5.48, pa=0, pt=16, spv=2.74, spw=5.48, spa=0, spt=16)
 
-    ####  ------   Bordeaux -------
+    ### ----- Los Angeles --------------
 
-    n, L, g, P =  6, 6.6, 1.2, 1
-    graph_obj = Graph.build_from_parameters(n=n, l=L, g=g, p=P)
+    n, L, g, P = 7, 11.65, 0.79, 1
+    G_inner, G_outer = 1, 5.35
+    Gi = [G_inner, G_outer, G_inner, G_outer, G_inner, G_inner, G_outer]
+    Hi = Gi
+    graph_obj = Graph.build_from_parameters(n=n, l=L, g=g, p=P, Gi=Gi, Hi=Hi)
     n_pross = 10
 
-    Y =  250000
+    Y = int(4500000/1000)
     calibrador = Calibrador(n=n, graph_obj=graph_obj, tmode=tmode, passenger_obj=passenger_obj, Y=Y, L=L,
                             build=True, n_procesos=n_pross)
     frontera = calibrador.obtener_frontera()

@@ -233,7 +233,7 @@ class Individuo:
                 self.successors = opt_obj.successors
                 self.Vij = opt_obj.Vij
                 self.assignment = opt_obj.assignment
-            except SIDERMITException:
+            except:
                 self.optimizado = False
         pass
 
@@ -265,10 +265,10 @@ class Individuo:
                         freq_nuevo[id] = dict_f[id]
                 self.set_freq(freq_nuevo)
                 self.set_id_lineas(id_lineas_nuevo)
-                return (f'Optimización exitosa, MVRC: {round(vrc,3)}')
-            except SIDERMITException:
+                return (f'Optimizacion exitosa, MVRC: {round(vrc,3)}')
+            except:
                 self.optimizado = False
-                return (f'Optimización fallida')
+                return (f'Optimizacion fallida')
 
         pass
 

@@ -63,16 +63,16 @@ class Algoritmo_genetico:
         # evaluador.quitar_infactibles(bd, poblacion)
 
         resultados = []
-        logger_r.info(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta}, theta={evaluador.theta}\n'
+        logger_r.info(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta}, theta={evaluador.theta}, Gi={evaluador.Gi}, Hi={evaluador.Hi}\n'
                           f'Archivo poblacion inicial: {name}, usando {n_procesos} procesadores \n'
                           f'Estrategia: {divisor.get_name()}, d1={divisor.d1}, d2={divisor.d2}, adicionales: {divisor.get_info_adicional()} \n'
-                          f'Tamaño población {self.size_poblacion},elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, \n'
-                          f'crossover para los {self.p_crossover} mejores y probabilidad mutación {self.prob_mutacion} \n')
+                          f'Tamanho poblacion {self.size_poblacion}, elitismo {self.p_elitismo}, densidad maxima EDL {self.densidad_max}, \n'
+                          f'crossover para los {self.p_crossover} mejores y probabilidad mutacion {self.prob_mutacion} \n')
         logger.info(f'Ciudad {n_zonas} zonas, Y={evaluador.Y}, a={evaluador.a}, alpha={evaluador.alpha}, beta={evaluador.beta}, theta={evaluador.theta} \n'
                     f'Archivo poblacion inicial: {name} \n'
                     f'Estrategia: {divisor.get_name()}, d1={divisor.d1}, d2={divisor.d2}, adicionales: {divisor.get_info_adicional()} \n'
-                    f'Tamaño población {self.size_poblacion},elitismo {self.p_elitismo}, densidad máxima EDL {self.densidad_max}, \n'
-                    f'crossover para los {self.p_crossover} mejores y probabilidad mutación {self.prob_mutacion} \n')
+                    f'Tamanho poblacion {self.size_poblacion}, elitismo {self.p_elitismo}, densidad maxima EDL {self.densidad_max}, \n'
+                    f'crossover para los {self.p_crossover} mejores y probabilidad mutacion {self.prob_mutacion} \n')
 
         # Iterar para avanzar en las generaciones
         for i in range(gen_max):
@@ -96,13 +96,13 @@ class Algoritmo_genetico:
 
         tf = time.time()
 
-        logger.info(f'Tiempo total ejecución: {tf-t0}')
-        logger_r.info(f'Tiempo total ejecución: {tf - t0}')
+        logger.info(f'Tiempo total ejecucion: {tf-t0}')
+        logger_r.info(f'Tiempo total ejecucion: {tf - t0}')
 
         logger_r.info(f'Mejor EDL {evaluador.get_edl_minimal().get_id_lineas()}')
-        logger_r.info(f'Tiempo total ejecución: {tf-t0}')
+        logger_r.info(f'Tiempo total ejecucion: {tf-t0}')
 
         # Graficar las lineas del mejor
-        # edl = evaluador.get_edl_minimal()
-        # for route in edl.network_sidermit.get_routes():
-        #     edl.network_sidermit.plot(f'sidermit{n_zonas}zonasLinea{route.id}id{id}.png', list_routes=[route.id])
+        edl = evaluador.get_edl_minimal()
+        for route in edl.network_sidermit.get_routes():
+            edl.network_sidermit.plot(f'sidermit{n_zonas}zonasLinea{route.id}id{id}.png', list_routes=[route.id])

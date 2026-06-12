@@ -12,7 +12,7 @@ from AlgoritmoGenetico.Poblacion.individuo import Individuo
 from AlgoritmoGenetico.Poblacion.poblacion import Poblacion
 
 # Desactivar logging de sidermit
-logging.getLogger("sidermit").setLevel(logging.WARNING)
+logging.getLogger("sidermit").setLevel(logging.INFO)
 
 class Evaluador:
     def __init__(self, passenger_obj: Passenger, custom_tmode: TransportMode, L: float, g: float, P:float, Y: float,
